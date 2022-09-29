@@ -1,0 +1,92 @@
+<<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div class="buttons">
+    <input type="button" class="BOLD" value="B" onclick="document.execCommand('bold')" />
+    <input type="button" class="ITALIC" value="Italic" onclick="document.execCommand('Italic')" />
+    <input type="button" class="UNDERBAR" value="abc" onclick="document.execCommand('Underline')" />
+    <input type="button" class="BAR" value="abc" onclick="document.execCommand('StrikeThrough')" />
+    <input type="button" class="aignLeft" value="왼쪽 정렬" onclick="document.execCommand('justifyleft')" />
+    <input type="button" class="aignCenter" value="가운데 정렬" onclick="document.execCommand('justifycenter')" />
+    <input type="button" class="aignRight" value="오른쪽 정렬" onclick="document.execCommand('justifyright')" />
+</div>
+<div>
+    <div class="editorDIV" contenteditable="true">
+     </div>
+    <div class="editorHTMLDIV">
+    </div>
+</div>
+<div class="buttons">
+    <input type="button" value="에디터로 보기" onclick="convertToEditor()" />
+    <input type="button" value="HTML로 보기" onclick="convertToHTML()" />
+</div>
+<script>
+	document.execCommand('Italic')           // 기울이기
+document.execCommand('Underline')        // 밑줄
+document.execCommand('StrikeThrough')    // 중간줄
+document.execCommand('Cut')              // 자르기
+document.execCommand('Copy')             // 복사하기
+document.execCommand('Paste')            // 붙혀넣기
+document.execCommand('Undo')             // 실행취소
+document.execCommand('Redo')             // 다시실행
+document.execCommand('insertorderedList')    // 글번호 매기기
+document.execCommand('insertunorderdList')   // 글머리 매기기
+document.execCommand('outdent')          // 내어쓰기
+document.execCommand('indent')           // 들여쓰기
+document.execCommand('justifyleft')      // 왼쪽정렬
+document.execCommand('justifycenter')    // 가운데정렬
+document.execCommand('justifyright')     // 오른쪽정렬
+	$(document).ready(function () {
+    $('.editorHTMLDIV').hide();
+});
+ 
+//HTML코드로 보기
+function convertToHTML() {
+    $('.editorHTMLDIV').text($('.editorDIV').html());
+    $('.editorHTMLDIV').show();
+    $('.editorDIV').hide();
+}
+ 
+//에디터 화면으로 보기
+function convertToEditor() {
+    $('.editorDIV').html($('.editorHTMLDIV').text());
+    $('.editorDIV').show();
+    $('.editorHTMLDIV').hide();
+}
+
+
+출처: https://dororongju.tistory.com/30 [웹 개발 메모장]
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
