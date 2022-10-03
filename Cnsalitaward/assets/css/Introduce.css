@@ -1,0 +1,232 @@
+﻿@font-face {
+    font-family: "EastSeaDokdo-Regular";
+    src: url('/assets/font/EastSeaDokdo-Regular.ttf')format('truetype');
+}
+
+@font-face {
+    font-family: 'NotoSansKR-Bold';
+    src: url('/assets/font/NotoSansKR-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Light";
+    src: url('/assets/font/NotoSansKR-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Medium";
+    src: url('/assets/font/NotoSansKR-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Regular";
+    src: url('/assets/font/NotoSansKR-Regular.otf') format('opentype');
+}
+
+body {
+    user-select: none;
+}
+* {
+    margin: 0;
+}
+.now {
+    margin-left: 36.3vw;
+    margin-top: 4.5vw;
+    width: 6.2vw;
+    height: 0.3vw;
+    background: #002897 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+
+.banner {
+    height: 25.3125VW;
+    width: 100VW;
+    border: 1.0416666666666665VW solid skyblue;
+}
+
+.title {
+    margin-top: 4.739583333333333VW;
+    font-size: 3.5416666666666665VW;
+    text-align: center;
+    font-family: EastSeaDokdo-Regular;
+    color: #000000;
+    opacity: 1;
+}
+
+
+.underline {
+    margin-top: 1.3020833333333335VW;
+    margin-left: 48.90625VW;
+    width: 2.1875VW;
+    height: 0.15625VW;
+    background: #000000 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+
+.top {
+    position: absolute;
+    margin-left: 48.072916666666664VW;
+    margin-top: 5.208333333333334VW;
+    width: 3.854166666666667VW;
+    height: 2.1875VW;
+    background: #4581EB 0% 0% no-repeat padding-box;
+    border-radius: 1.3541666666666667VW 1.3541666666666667VW 0px 0px;
+    opacity: 1;
+}
+
+
+.hole {
+    position: absolute;
+    margin-left: 49.583333333333336VW;
+    margin-top: 5.885416666666667VW;
+    width: 0.8333333333333334VW;
+    height: 0.8333333333333334VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 1.5625VW 1.5625VW 1.5625VW 1.5625VW;
+    opacity: 1;
+}
+
+
+.bottom {
+    position: absolute;
+    z-index: 2;
+    margin-top: 7.34375VW;
+    margin-left: 45.625VW;
+    width: 8.75VW;
+    height: 1.7708333333333333VW;
+    background: #4581EB 0% 0% no-repeat padding-box;
+    border-radius: 1.0416666666666665VW 1.0416666666666665VW 0.10416666666666667VW 0.10416666666666667VW;
+    opacity: 1;
+}
+
+
+.body {
+    position: absolute;
+    margin-left: 20.520833333333332VW;
+    margin-top: 8.229166666666666VW;
+    width: 58.958333333333336VW;
+    height: 32.8125VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.3125VW solid #3252AB;
+    border-radius: 0.9375VW;
+    opacity: 1;
+}
+
+
+.maintext1 {
+    margin-left: 2.7083333333333335VW;
+    margin-top: 4.114583333333333VW;
+    width: 53.59374999999999VW;
+    height: 5.9375VW;
+    text-align: left;
+    font-size: 1.3541666666666667VW;
+    font-family: NotoSansKR-Light;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+}
+
+
+.maintext2 {
+    margin-left: 2.7083333333333335VW;
+    margin-top: 3.229166666666667VW;
+    width: 52.81249999999999VW;
+    height: 5.9375VW;
+    text-align: left;
+    font-size: 1.3541666666666667VW;
+    font-family: NotoSansKR-Light;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+}
+
+
+.maintext3 {
+    margin-left: 2.7083333333333335VW;
+    margin-top: 3.229166666666667VW;
+    width: 52.29166666666667VW;
+    height: 3.958333333333333VW;
+    text-align: left;
+    font-size: 1.3541666666666667VW;
+    font-family: NotoSansKR-Light;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+    font-weight:800 !important;
+}
+
+
+.maintext4 {
+    margin-left: 41.5625VW;
+    margin-top: 0.78125VW;
+    width: 13.020833333333334VW;
+    height: 1.875VW;
+    text-align: left;
+    font-size: 1.25VW;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+}
+
+
+
+.moreinfo {
+    margin-top: 45.3125VW;
+    margin-left: 42.44791666666667VW;
+
+    height: 2.083333333333333VW;
+    text-align: left;
+    letter-spacing: 0;
+    color: #002897;
+    opacity: 1;
+    font-family:EastSeaDokdo-Regular !important;
+}
+
+
+.blueline {
+    margin-left: 24.375VW;
+    margin-top: 0.20833333333333334VW;
+    width: 51.302083333333336VW;
+    height: 0.15625VW;
+    background: #002897 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+
+.arrow {
+    position: absolute;
+    margin-left: 48.69791666666667VW;
+    magin-top: 0;
+    margin-bottom: 8.802083333333334VW;
+    width: 2.604166666666667VW;
+    height: 2.9166666666666665VW;
+    background: #002897 0% 0% no-repeat padding-box;
+    border-radius: 0px 0px 1.5625VW 1.5625VW;
+    opacity: 1;
+}
+
+
+.arrowwhite {
+    position: absolute;
+    margin-left: 49.395833333333336VW;
+    margin-top: 1.0416666666666665VW;
+    width: 0.6770833333333334VW;
+    height: 0.6770833333333334VW;
+    transform: matrix(0.5, 0.5, -0.5, 0.5, 0, 0);
+    border: 0.26041666666666663VW solid #FFFFFF;
+    opacity: 1;
+}
+
+
+.arrowhide {
+    position: absolute;
+    margin-left: 48.95833333333333VW;
+    margin-top: 0.7447916666666667VW;
+    width: 2.083333333333333VW;
+    height: 0.8854166666666666VW;
+    background-color: #002897;
+}
+

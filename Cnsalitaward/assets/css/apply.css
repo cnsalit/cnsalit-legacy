@@ -1,0 +1,297 @@
+﻿@font-face {
+    font-family: "EastSeaDokdo-Regular";
+    src: url('/assets/font/EastSeaDokdo-Regular.ttf')format('truetype');
+}
+
+@font-face {
+    font-family: 'NotoSansKR-Bold';
+    src: url('/assets/font/NotoSansKR-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Light";
+    src: url('/assets/font/NotoSansKR-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Medium";
+    src: url('/assets/font/NotoSansKR-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Regular";
+    src: url('/assets/font/NotoSansKR-Regular.otf') format('opentype');
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #818181;
+    opacity: 1; /* Firefox */
+    font-family: NotoSansKR-Light;
+    font-size: 1.25VW;
+}
+
+* {
+    margin: 0;
+    user-select:none;
+}
+.now {
+    
+    margin-top: 4.5vw !important;
+    width: 3.5vw !important;
+    height: 0.3vw !important;
+    background: #002897 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.banner {
+    height: 25.31VW;
+    width: 100VW;
+    border: 1.04VW solid skyblue;
+}
+
+.apply {
+    margin-top: 4.73VW;
+    text-align: center;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+    font-size: 3.54VW;
+    font-family: EastSeaDokdo-Regular;
+}
+
+.bar {
+    margin-top: 1.31VW;
+    margin-left: 48.9VW;
+    width: 2.18VW;
+    height: 0.156VW;
+    background: #000000 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+
+.write {
+    border: 0.05VW solid white;
+    margin-left: 14.73VW;
+    width: 70.67VW;
+    height: 91.14VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.checktype {
+    text-align: left;
+    margin-top: 0.2VW;
+    margin-left: 1.536VW;
+    font-family: NotoSansKR-Medium;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+    font-size: 1.66VW;
+
+}
+
+.verticalline {
+    width: 0px;
+    height: 1.66VW;
+    margin-left: 0.859VW;
+    margin-top: 0.598VW;
+    border: 0.05VW solid #707070;
+    opacity: 1;
+}
+
+.line {
+    margin-top: 3.2VW;
+    border: 0.05VW solid #707070;
+    opacity: 1;
+    width: 70.67VW;
+    height: 0px;
+}
+
+
+.title {
+    margin-left: 1.4VW;
+    margin-top: 1.32VW;
+    font-size: 1.66VW;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: left;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+.subtitle {
+    margin-top: 1.64VW;
+    font-size: 1.25VW;
+    font-weight: 300;
+    text-align: left;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+.texttitle {
+    margin-top: 0.625VW;
+    margin-left: 0.781VW;
+    width: 69VW;
+    height: 8.33VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4VW;
+    opacity: 1;
+}
+
+
+.summary {
+    margin-left: 1.40625VW;
+    margin-top: 1.3020833333333335VW;
+    text-align: left;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+    font-size: 1.6666666666666667VW;
+    width: 3.3333333333333335VW;
+    height: 2.4479166666666665VW;
+}
+
+
+.textsummary {
+    margin-top: 0.625VW;
+    margin-left: 0.78125VW;
+    width: 69.0625VW;
+    height: 14.583333333333334VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+}
+
+
+.whitesub {
+    width: 65.67708333333333VW;
+    height: 3.802083333333333VW;
+    margin-left: 1.5104166666666667VW;
+    margin-top: 0.8333333333333334VW;
+    font-size: 1.25VW;
+    text-align: left;
+    letter-spacing: 0;
+    color: #818181;
+}
+
+
+.redsub {
+    width: 65.67708333333333VW;
+    height: 3.802083333333333VW;
+    margin-left: 1.5104166666666667VW;
+    font-size: 1.25VW;
+    text-align: left;
+    letter-spacing: 0;
+    color: #E17B7B;
+}
+
+
+.maintext {
+    margin-left: 1.40625VW;
+    margin-top: 1.3020833333333335VW;
+    font-size: 1.6666666666666667VW;
+    text-align: left;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+
+.writemaintext {
+    margin-top: 0.625VW;
+    margin-left: 0.78125VW;
+    width: 69.0625VW;
+    height: 33.33333333333333VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+}
+
+
+.attachments {
+    margin-left: 1.40625VW;
+    margin-top: 1.3020833333333335VW;
+    font-size: 1.6666666666666667VW;
+    text-align: left;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+
+.writeattachments {
+    margin-top: 4.427083333333334VW;
+    margin-left: 0.78125VW;
+    width: 69.0625VW;
+    height: 8.333333333333332VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+}
+
+
+.submit {
+    margin-left: -5vw;
+
+    width: 5.625VW;
+    height: 2.8125VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+    font-size: 1.4583333333333333VW;
+    text-align: center;
+    line-height: 2.8125VW;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+.save {
+    margin-left: 62vw;
+    margin-bottom: 9.010416666666666VW;
+    width: 5.625VW;
+    height: 2.8125VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+    font-size: 1.4583333333333333VW;
+    text-align: center;
+    line-height: 2.8125VW;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+.verse {
+    text-align: left;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+    font-size: 1.56VW;
+}
+.prose {
+    text-align: left;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+    font-size: 1.56VW;
+}
+
+.radiobutton {
+    -ms-transform: scale(1); /* IE 9 */
+    -webkit-transform: scale(1); /* Chrome, Safari, Opera */
+    transform: scale(1);
+}
+
+@media screen and (max-width:480px) {
+        .radiobutton {
+            -ms-transform: scale(0.6); /* IE 9 */
+            -webkit-transform: scale(0.6); /* Chrome, Safari, Opera */
+            transform: scale(0.6);
+        }
+    }

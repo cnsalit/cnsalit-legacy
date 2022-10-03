@@ -1,0 +1,79 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminApply.aspx.cs" Inherits="Cnsalitaward.AdminApply" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server" style="display:none;">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/assets/css/make.css" />
+    <link rel="stylesheet" href="/assets/css/font.css" />
+    <title></title>
+</head>
+<script>
+
+    window.onload = function () {
+      var open = document.getElementById('openbtn')
+      var quiz = document.getElementById('quiz')
+      var close = document.getElementById('closebtn')
+
+      open.onclick = function () {
+        quiz.style.display = 'block';
+      }
+      close.onclick = function () {
+        quiz.style.display = 'none';
+      }
+
+
+        document.getElementById('click').onclick = function () {
+            a = document.getElementById('userPw').value;
+            b = document.getElementById('userPw2').value;
+            if (a == b) {
+                document.getElementById('explain').textContent = '비밀번호가 일치합니다';
+            }
+            else {
+                document.getElementById('explain').textContent = '비밀번호가 일치하지 않습니다';
+            }
+        }
+    }
+
+</script>
+<body>
+    <form id="form1" runat="server">
+        <div style="display:flex; align-items:center">
+            <div class="hello Dokdo">회원가입</div>
+            <div class="tytle" style="font-size:1.4vw; margin-left:-23.0vw;">이름</div>
+            <asp:TextBox ID="realName" placeholder="이름을 입력해주세요" runat="server" CssClass="input"></asp:TextBox>
+
+            <div style=" display:inline-block; margin-left:0.2vw;">
+                <div class="tytle" style="display:inline-block; width:5vw; font-size:1.4vw; margin:0vw; margin-top:1vw;">ID</div>
+                <asp:Button ID="checkID" runat="server" Text="중복확인" class="btn" style="background-color:#EFEFEF; color:black; line-height:2vw; font-size: 1vw; display:inline-block; width:5vw; height:2vw; margin-left: 15vw; margin-bottom:0; margin-top:1vw;" OnClick="CheckID_Click" />
+            </div>
+            <asp:TextBox ID="userId" placeholder="아이디를 입력해주세요" runat="server" style="margin-top:0.5vw;" CssClass="input"></asp:TextBox>
+            <asp:Label ID="onlyID" runat="server" Text="" style="margin-bottom:1vw; margin-top:0.1vw; margin-left:-13vw;"></asp:Label>
+
+
+            <div class="tytle" style="margin-left:-23.5vw; margin-top:0.5vw;">PW</div>
+            <asp:TextBox ID="userPw" placeholder="비밀번호를 입력해주세요" runat="server" CssClass="input" TextMode="Password"></asp:TextBox>
+            <asp:Button ID="applybtn" runat="server" Text="확  인" CssClass="btn" style="margin-top:3vw;" OnClick="Apply_Click" />
+        </div>
+
+
+    </form>
+</body>
+</html>
+
+
+<%--<div style="height:7vw; display:inline-block">
+    <div class="tytle" style="display:inline-block; width:5vw; font-size:1.4vw; margin:0vw; margin-top:1vw;">이름</div>
+    <asp:Button ID="Button1" runat="server" Text="중복확인" class="btn" style="line-height:2vw; font-size: 1vw; display:inline-block; width:5vw; height:2vw; margin-left: 15vw; margin-bottom:0; margin-top:1vw;" />
+    <asp:TextBox ID="TextBox2" placeholder="이름을 입력해주세요" runat="server" style="margin-top:1vw;" CssClass="input"></asp:TextBox>
+</div>
+
+<div style="height:8vw; display:inline-block">
+    <div class="tytle" style="display:inline-block; width:5vw; font-size:1.4vw; margin:0vw; margin-top:2vw;">필명</div>
+    <asp:Button ID="checkPenname" runat="server" Text="중복확인" class="btn" style="background-color:#EFEFEF; color:black; line-height:2vw; font-size: 1vw; display:inline-block; width:5vw; height:2vw; margin-left: 15vw; margin-bottom:0; margin-top:1vw;" OnClick="CheckPenname_Click" />
+    <asp:TextBox ID="penName" placeholder="필명을 입력해주세요" style="margin-top:0.5vw;" runat="server" CssClass="input"></asp:TextBox>
+    <asp:Label ID="onlyPenname" runat="server" Text="" style="margin-top:0.1vw; margin-left:-16vw;"></asp:Label>
+</div>
+
+    >--%>

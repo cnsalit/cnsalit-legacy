@@ -1,0 +1,79 @@
+﻿@font-face {
+    font-family: "EastSeaDokdo-Regular";
+    src: url('/assets/font/EastSeaDokdo-Regular.ttf')format('truetype');
+}
+
+@font-face {
+    font-family: 'NotoSansKR-Bold';
+    src: url('/assets/font/NotoSansKR-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Light";
+    src: url('/assets/font/NotoSansKR-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Medium";
+    src: url('/assets/font/NotoSansKR-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Regular";
+    src: url('/assets/font/NotoSansKR-Regular.otf') format('opentype');
+}
+* {
+    margin: 0;
+    user-select: none;
+}
+.now {
+    margin-left: 65.5vw ;
+    margin-top: 4.5vw;
+    width: 4.4vw;
+    height: 0.3vw;
+    background: #002897 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+
+.banner {
+    height: 8.697916666666666VW;
+    width: 100VW;
+    border: 1.0416666666666665VW solid skyblue;
+}
+
+
+.title {
+    margin-left: 39.375VW;
+    margin-top: 13.177083333333334VW;
+    font-size: 6.5625VW;
+    text-align: left;
+    font-family: EastSeaDokdo-Regular;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+}
+
+
+
+.line {
+    margin-left: 39.401041666666664VW;
+    margin-top: 3.359375VW;
+    width: 21.25VW;
+    height: 0px;
+    border: 0.05VW solid #707070;
+    opacity: 1;
+}
+
+
+.subtitle {
+    margin-top: 0.7552083333333334VW;
+    margin-left: 42.291666666666664VW;
+    margin-bottom: 21.979166666666668VW;
+    font-size: 1.1458333333333333VW;
+    text-align: left;
+    font-family: NotoSansKR-Medium;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+}

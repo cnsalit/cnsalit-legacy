@@ -1,0 +1,142 @@
+﻿@font-face {
+    font-family: "EastSeaDokdo-Regular";
+    src: url('/assets/font/EastSeaDokdo-Regular.ttf')format('truetype');
+}
+
+@font-face {
+    font-family: 'NotoSansKR-Bold';
+    src: url('/assets/font/NotoSansKR-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Light";
+    src: url('/assets/font/NotoSansKR-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Medium";
+    src: url('/assets/font/NotoSansKR-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Regular";
+    src: url('/assets/font/NotoSansKR-Regular.otf') format('opentype');
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: darkgray;
+    opacity: 1; /* Firefox */
+    font-family: NotoSansKR-Regular;
+    font-size: 0.8333333333333334VW;
+}
+.logintxt {
+    font-family: NotoSansKR-Regular;
+    font-size: 1.4583333333333333VW;
+}
+.loginbtn {
+    font-family: NotoSansKR-Regular;
+    font-size: 0.8333333333333334VW;
+    color: darkgray;
+}
+.on{
+    color:red;
+}
+.tablebox {
+    width: 35.4VW;
+    height: 16.6VW;
+    margin: 14.79VW;
+    margin-left: 32.29VW;
+    border-radius: 0.83VW;
+    border-spacing: 0px 0px;
+}
+@media screen and (max-width:480px) {
+    .tablebox {
+        width: 34.4VW;
+        height: 16.6VW;
+        margin: 19.79VW;
+        margin-left: 32.29VW;
+        border-radius: 0.83VW;
+        border-spacing: 0px 0px;
+    }
+}
+.blinking {
+    -webkit-animation: blink 1.5s ease-in-out infinite alternate;
+    -moz-animation: blink 1.5s ease-in-out infinite alternate;
+    animation: blink 1.5s ease-in-out infinite alternate;
+}
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

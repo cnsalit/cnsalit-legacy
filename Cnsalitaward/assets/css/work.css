@@ -1,0 +1,420 @@
+﻿@font-face {
+    font-family: "EastSeaDokdo-Regular";
+    src: url('/assets/font/EastSeaDokdo-Regular.ttf')format('truetype');
+}
+
+@font-face {
+    font-family: 'NotoSansKR-Bold';
+    src: url('/assets/font/NotoSansKR-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Light";
+    src: url('/assets/font/NotoSansKR-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Medium";
+    src: url('/assets/font/NotoSansKR-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NotoSansKR-Regular";
+    src: url('/assets/font/NotoSansKR-Regular.otf') format('opentype');
+}
+
+* {
+    margin: 0;
+}
+body {
+    user-select: none;
+}
+
+.now {
+    margin-left: 58.35vw;
+    margin-top: 4vw;
+    width: 4.3vw;
+    height: 0.3vw;
+    background: #002897 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.banner {
+    height: 25.3125VW;
+    width: 100VW;
+    border: 1.0416666666666665VW solid skyblue;
+}
+
+
+
+
+.verse {
+    margin-top: 4.270833333333333VW;
+    margin-left: 14.635416666666668VW;
+    width: 35.3125VW;
+    height: 2.3958333333333335VW;
+    background: #5A5A5A 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    opacity: 1;
+    text-align: center;
+    line-height: 2.3958333333333335VW;
+    font-size: 0.8333333333333334VW;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+
+.prose {
+    margin-top: 4.270833333333333VW;
+    width: 35.3125VW;
+    height: 2.3958333333333335VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    opacity: 1;
+    text-align: center;
+    line-height: 2.3958333333333335VW;
+    font-size: 0.8333333333333334VW;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+.verse2 {
+    margin-top: 4.270833333333333VW;
+    margin-left: 14.635416666666668VW;
+    width: 35.3125VW;
+    height: 2.3958333333333335VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    opacity: 1;
+    text-align: center;
+    line-height: 2.3958333333333335VW;
+    font-size: 0.8333333333333334VW;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+
+.prose2 {
+    margin-top: 4.270833333333333VW;
+    width: 35.3125VW;
+    height: 2.3958333333333335VW;
+    background: #5A5A5A 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    text-align: center;
+    line-height: 2.3958333333333335VW;
+    font-size: 0.8333333333333334VW;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+
+.text_verse {
+    margin-top: 10.885416666666666VW;
+    margin-left: 48.17708333333333VW;
+    font-size: 3.5416666666666665VW;
+    text-align: left;
+    font-family: EastSeaDokdo-Regular;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+}
+
+
+.underline {
+    margin-top: 1.3020833333333335VW;
+    margin-left: 48.854166666666664VW;
+    background: #000000 0% 0% no-repeat padding-box;
+    opacity: 1;
+    width: 2.1875VW;
+    height: 0.15625VW;
+}
+
+
+.body {
+    border: 0.05VW solid white;
+    margin-left: 14.6875VW;
+    margin-top: 3.75VW;
+    margin-bottom: 7.513020833333334VW;
+    width: 70.67708333333333VW;
+    height: 35.989583333333336VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+
+.title {
+    margin-left: 0.13020833333333331VW;
+    font-size: 1.5625VW;
+    text-align: left;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+
+.grayline {
+    margin-top: 0.6510416666666667VW;
+    width: 70.67708333333333VW;
+    height: 0px;
+    border: 0.05VW solid #707070;
+    opacity: 1;
+}
+.replyline {
+    margin-top: 0.6510416666666667VW;
+    width: 70.67708333333333VW;
+    height: 0px;
+    border: 0.05VW solid #707070;
+    opacity: 0.5;
+}
+
+.writer {
+    font-size: 1.25VW;
+    margin-left: 0.13020833333333331VW;
+    margin-top: 0.6510416666666667VW;
+    text-align: left;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+.realwriter {
+    margin-top: 0.6510416666666667VW;
+    margin-left: 0.4166666666666667VW;
+    font-size: 1.25VW;
+    text-align: left;
+    font-family: NotoSansKR-Light;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+
+.verticalline {
+    margin-top: 0.9895833333333333VW;
+    margin-left: 0.8593750000000001VW;
+    width: 0px;
+    height: 1.25VW;
+    border: 0.05Vw solid #707070;
+    opacity: 1;
+}
+
+
+.date {
+    font-size: 1.25VW;
+    margin-left: 0.8593750000000001VW;
+    margin-top: 0.6510416666666667VW;
+    text-align: left;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+
+.realdate {
+    margin-top: 0.6510416666666667VW;
+    margin-left: 0.4166666666666667VW;
+    font-size: 1.25VW;
+    text-align: left;
+    font-family: NotoSansKR-Light;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+
+.view {
+    font-size: 1.25VW;
+    margin-left: 0.8593750000000001VW;
+    margin-top: 0.6510416666666667VW;
+    text-align: left;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+
+.realview {
+    margin-top: 0.6510416666666667VW;
+    margin-left: 0.4166666666666667VW;
+    font-size: 1.25VW;
+    text-align: left;
+    font-family: NotoSansKR-Light;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+
+.good {
+    font-size: 1.25VW;
+    margin-left: 0.8593750000000001VW;
+    margin-top: 0.6510416666666667VW;
+    text-align: left;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+
+.realgood {
+    margin-top: 0.6510416666666667VW;
+    margin-left: 0.4166666666666667VW;
+    font-size: 1.25VW;
+    text-align: left;
+    font-family: NotoSansKR-Light;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+
+
+.blueline {
+    margin-top: 3.1510416666666665VW;
+    width: 70.67708333333333VW;
+    height: 0.20833333333333334VW;
+    background: #002897 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+
+.maintext {
+    border: 0.05VW solid white;
+    margin-top: 2.8125VW;
+    width: 70.625VW;
+    height: 18.75VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    text-align: left;
+    font-size: 1.4583333333333333VW;
+    font-family: NotoSansKR-Light;
+    letter-spacing: 0;
+    color: #000000;
+    opacity: 1;
+}
+
+
+.rewrite {
+    margin-left: 57VW;
+    margin-top: -2.35VW !important;
+    font-size: 1.4583333333333333VW;
+    text-align: center;
+    line-height: 2.8125VW;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+    width: 5.625VW;
+    height: 2.8125VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+}
+
+
+.delete {
+    margin-left: 1.0416666666666665VW;
+    margin-top: -2.35VW !important;
+    font-size: 1.4583333333333333VW;
+    text-align: center;
+    line-height: 2.8125VW;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+    width: 5.625VW;
+    height: 2.8125VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+}
+.download {
+    float:right;
+    font-size: 1vw;
+    text-align: center;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+    width: 5.625VW;
+    height: 2.8125VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+}
+
+
+.like {
+    margin-left: 57VW;
+    margin-top: 1.5625VW;
+    font-size: 1.4583333333333333VW;
+    text-align: center;
+    line-height: 2.8125VW;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+    width: 5.625VW;
+    height: 2.8125VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+}
+.list {
+    margin-left: 1.0416666666666665VW;
+    margin-top: 1.5625VW;
+    margin-bottom:2vw;
+    font-size: 1.4583333333333333VW;
+    text-align: center;
+    line-height: 2.8125VW;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+    width: 5.625VW;
+    height: 2.8125VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+}
+.reply {
+    font-size: 1.4583333333333333VW;
+    text-align: center;
+    line-height: 2.8125VW;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+}
+.rname{
+    font-size:1.5vw;
+}
+.rdate{
+    font-size:1.2vw;
+}
+.rcontent{
+    font-size:1vw;
+}

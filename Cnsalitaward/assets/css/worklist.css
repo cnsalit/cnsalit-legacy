@@ -1,0 +1,26 @@
+﻿body {
+    user-select: none;
+}
+.now {
+    margin-left: 58.3vw !important;
+    margin-top: 4.5vw !important;
+    width: 4.3vw !important;
+    height: 0.3vw !important;
+    background: #002897 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.writecritic {
+    font-size: 1.4583333333333333VW;
+    text-align: center;
+    line-height: 2.8125VW;
+    font-family: NotoSansKR-Regular;
+    letter-spacing: 0;
+    color: #5A5A5A;
+    opacity: 1;
+    width: 5.625VW;
+    height: 3VW;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.05VW solid #707070;
+    border-radius: 0.4166666666666667VW;
+    opacity: 1;
+}

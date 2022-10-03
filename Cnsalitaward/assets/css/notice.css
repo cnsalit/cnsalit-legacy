@@ -1,0 +1,52 @@
+﻿body {
+}
+
+.btn {
+    margin-top:3vw;
+    padding: 20px 80px;
+    border-radius:30vw;
+    border: 3px solid white;
+    background-color:transparent;
+    cursor: pointer;
+    font-size: inherit;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: inherit;
+    transition: all 0.3s ease 0s;
+}
+
+    .btn:after {
+        content: "";
+        position: absolute;
+        transition: all 0.3s ease 0s;
+        z-index: -1;
+    }
+
+    .btn:hover,
+    .btn:focus {
+        color: #f8f8f8;
+    }
+
+/* Style 1 */
+.btn-1:hover,
+.btn-1:focus {
+    background-color: darkblue;
+}
+
+.btn-3:after {
+    background: #1ABC9C;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 100%;
+}
+
+.btn-3:hover,
+.btn-3:focus {
+    background-color: transparent;
+}
+
+    .btn-3:hover:after,
+    .btn-3:focus:after {
+        right: 0;
+    }

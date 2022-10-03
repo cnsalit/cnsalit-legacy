@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.Master.cs" Inherits="Cnsalitaward.UserMaster" %>
+<link rel="shortcut icon" href="/favicon.ico" />
+<title>큰별문학상</title>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <link href="/assets/css/default.css" rel="stylesheet" />
+    <link href="/assets/css/font.css" rel="stylesheet" />
+    	<asp:ContentPlaceHolder ID="Header" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body  style="user-select:none;">
+    <form id="form1" runat="server"  >
+    <div style="margin-bottom:1vw;">
+        <hr class="line_1" style="margin-top:0;margin-bottom: 0">
+        <hr class="line_2" style="margin-top:0">
+         
+        </div>
+
+    <div style="float: right; height:4vw; margin-right:2vw; display:inline-block; font-size:1vw; margin-top: -2.9vw;">
+        <div style="display:inline-block; font-size:1vw;"><%=Session["Penname"] %>님, 환영합니다.</div>
+        <asp:Button ID="btnNull" runat="server"  style="display:none" />
+        <asp:ImageButton ID="ImageButton1" runat="server"  ImageUrl="/assets/img/log-out.png" style="float:right; margin-top:-0.2vw;  margin-left:1vw; width:1.8vw; height:1.8VW; cursor:pointer;" onclick="Logout_Click" />
+         </div>
+        
+        
+    <span class="nav_menu ul" style="float: left; margin-top:-0.5VW;">
+        <a href="Default.aspx" class="nav_home" style="margin-right:6vw; margin-left: 16VW;float:left; color:#002897;">큰별 문학상</a>
+        </span>
+        <span class="nav_menu ul" style="float: left; margin-top:0.8VW;">
+
+          <a href="Introduce?menu=Introduce" class="nav_menu" style="margin-right: 2.5vw; margin-left:2.9VW;">큰별 문학상 소개</a>
+    <a href="Honor?menu=Honor" class="nav_menu" style="margin-right: 2.5vw">명예의 전당</a>
+     <a href="#" onclick="alert('현재는 응모할 수 없습니다.')" class="nav_menu" style="margin-right: 2.5vw">작품응모 </a>
+        <a href="WorkList.aspx?page=1" class="nav_menu" style="margin-right: 2.5vw">작품 전시관</a>
+         <a href="CriticList.aspx" class="nav_menu" style="margin-right: 2.5vw">나도 비평가</a> <!--href="CriticList.aspx"-->
+         <a href="Vote.aspx" class="nav_menu" style="margin-right: 2.5vw">내가 뽑은 최고의 작품</a>
+        <a href="Member.aspx" class="nav_menu">만든이</a>
+            <div class="nav-underline"></div>
+        </span>
+   	<asp:ContentPlaceHolder ID="Contents" runat="server">
+	</asp:ContentPlaceHolder>
+        </form>
+</body>
+</html>
