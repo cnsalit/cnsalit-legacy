@@ -8,50 +8,58 @@
     <link rel="stylesheet" href="/assets/css/honor.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
-$(document).ready(function () {
+        $(document).ready(function () {
 
-    $("[id^=w],[id^=t],[id^=e]").hide();
+            $("[id^=w],[id^=t],[id^=e],[id^=k]").hide();
 
-    $("#btn1").click(function(){
-        $("[id^=p]").toggle();
-        $("[id^=w],[id^=t],[id^=e]").hide();
-        $("#btn1").removeClass();
-        $("#btn1").addClass("choice1");
-        $("#btn2,#btn3,#btn4").removeClass();
-        $("#btn2,#btn3,#btn4").addClass("nochoice");
-    });
+            $("#btn1").click(function () {
+                $("[id^=p]").toggle();
+                $("[id^=w],[id^=t],[id^=e],[id^=k]").hide();
+                $("#btn1").removeClass();
+                $("#btn1").addClass("choice1");
+                $("#btn2,#btn3,#btn4,#btn5").removeClass();
+                $("#btn2,#btn3,#btn4,#btn5").addClass("nochoice");
+            });
 
-    $("#btn2").click(function(){
-        $("[id^=w]").toggle();
-        $("[id^=p],[id^=t],[id^=e]").hide();
-        $("#btn2").removeClass();
-        $("#btn2").addClass("choice1");
-        $("#btn1,#btn3,#btn4").removeClass();
-        $("#btn1,#btn3,#btn4").addClass("nochoice");
-      
-    });
-    
-     $("#btn3").click(function(){
-        $("[id^=t]").toggle();
-        $("[id^=p],[id^=w],[id^=e]").hide();
-        $("#btn3").removeClass();
-        $("#btn3").addClass("choice1");
-        $("#btn1,#btn2,#btn4").removeClass();
-        $("#btn1,#btn2,#btn4").addClass("nochoice");
-      
-     });
+            $("#btn2").click(function () {
+                $("[id^=w]").toggle();
+                $("[id^=p],[id^=t],[id^=e],[id^=k]").hide();
+                $("#btn2").removeClass();
+                $("#btn2").addClass("choice1");
+                $("#btn1,#btn3,#btn4,#btn5").removeClass();
+                $("#btn1,#btn3,#btn4,#btn5").addClass("nochoice");
 
-    $("#btn4").click(function(){
-        $("[id^=e]").toggle();
-        $("[id^=p],[id^=w],[id^=t]").hide();
-        $("#btn4").removeClass();
-        $("#btn4").addClass("choice1");
-        $("#btn1,#btn2,#btn3").removeClass();
-        $("#btn1,#btn2,#btn3").addClass("nochoice");
-    });
+            });
 
-});
-</script>
+            $("#btn3").click(function () {
+                $("[id^=t]").toggle();
+                $("[id^=p],[id^=w],[id^=e],[id^=k]").hide();
+                $("#btn3").removeClass();
+                $("#btn3").addClass("choice1");
+                $("#btn1,#btn2,#btn4,#btn5").removeClass();
+                $("#btn1,#btn2,#btn4,#btn5").addClass("nochoice");
+
+            });
+
+            $("#btn4").click(function () {
+                $("[id^=e]").toggle();
+                $("[id^=p],[id^=w],[id^=t],[id^=k]").hide();
+                $("#btn4").removeClass();
+                $("#btn4").addClass("choice1");
+                $("#btn1,#btn2,#btn3,#btn5").removeClass();
+                $("#btn1,#btn2,#btn3,#btn5").addClass("nochoice");
+            });
+            $("#btn5").click(function () {
+                $("[id^=k]").toggle();
+                $("[id^=p],[id^=w],[id^=t],[id^=e]").hide();
+                $("#btn5").removeClass();
+                $("#btn5").addClass("choice1");
+                $("#btn1,#btn2,#btn3,#btn4").removeClass();
+                $("#btn1,#btn2,#btn3,#btn4").addClass("nochoice");
+            });
+
+        });
+    </script>
 </head>
     <body style="user-select:none;">
         <div style="margin-left:44.5vw;" class="now"></div>
@@ -61,13 +69,15 @@ $(document).ready(function () {
 <div id="btn2" class = "nochoice" style ="float:left; margin-left:-0.05VW;  cursor:pointer">제 2회 큰별문학상 수상작</div>
 <div id="btn3" class = "nochoice" style ="float:left; margin-top:-0vw; border-top-color:none; width: 35.24VW;  cursor:pointer">제 3회 큰별문학상 수상작</div>
 <div id="btn4" class = "nochoice" style ="float:left; margin-top: -0.01vw; margin-left: 0.001vw; cursor:pointer">제 4회 큰별문학상 수상작</div>
+<div id="btn5" class = "nochoice" style ="float:left; margin-top: +2.6vw; margin-left: -71vw; cursor:pointer">제 5회 큰별문학상 수상작</div>
 
       
 <!--- 제목 --->
-<div id="p1" class = "title" style="cursor:pointer;">제 1회 큰별문학상 수상작</div>
-<div id="w1" class = "title" style="cursor:pointer;">제 2회 큰별문학상 수상작</div>
-<div id="t1" class = "title" style="cursor:pointer;">제 3회 큰별문학상 수상작</div>
-<div id="e1" class = "title" style="cursor:pointer;">제 4회 큰별문학상 수상작</div>
+<div id="p1" class = "title" style="cursor:pointer; margin-top:15vw;">제 1회 큰별문학상 수상작</div>
+<div id="w1" class = "title" style="cursor:pointer; margin-top:15vw;">제 2회 큰별문학상 수상작</div>
+<div id="t1" class = "title" style="cursor:pointer; margin-top:15vw;">제 3회 큰별문학상 수상작</div>
+<div id="e1" class = "title" style="cursor:pointer; margin-top:15vw;">제 4회 큰별문학상 수상작</div>
+<div id="k1" class = "title" style="cursor:pointer; margin-top:15vw;">제 5회 큰별문학상 수상작</div>
 <div class = "underline"></div>
 
 
@@ -79,12 +89,14 @@ $(document).ready(function () {
     <div id="w2" class = "firstprizetitle" style="float:left;">그럼에도 불구하고</div>
     <div id="t2" class = "firstprizetitle" style="float:left;">룸메이트</div>
     <div id="e2" class = "firstprizetitle" style="float:left;">도마의 투쟁</div>
+    <div id="k2" class = "firstprizetitle" style="float:left;">정윤승의 투쟁</div>
 
   <div class = "verticalline" style="float:left;"></div>
    <div id="p3" class = "firstprizewriter" style = "float:left">3기 곽구연</div>
   <div id="w3" class = "firstprizewriter" style = "float:left">5기 배진영</div>
     <div id="t3" class = "firstprizewriter" style = "float:left">4기 강시현</div>
     <div id="e3" class = "firstprizewriter" style = "float:left">7기 임재우</div>
+    <div id="k3" class = "firstprizewriter" style = "float:left">8기 정윤승</div>
   
   
   <div class = "secondprize">최우수상</div>
@@ -93,11 +105,15 @@ $(document).ready(function () {
   <div id="w4" class = "secondprizetitle" style="float:left;">이지러지다</div>
      <div id="t4" class = "secondprizetitle" style="float:left;">어느 자살한 로봇의 고해</div>
     <div id="e4" class = "secondprizetitle" style="float:left;">바다를 밝힐 수 있었던 것은</div>
+    <div id="k4" class = "secondprizetitle" style="float:left;">정윤승을 밝힐 수 있었던 것은</div>
+
   <div class = "verticalline" style="float:left;"></div>
     <div id="p5" class = "secondprizewriter" style = "float:left">3기 박한비</div>
   <div id="w5" class = "secondprizewriter" style = "float:left">4기 하지윤</div>
     <div id="t5" class = "secondprizewriter" style = "float:left">6기 정현욱</div>
     <div id="e5" class = "secondprizewriter" style = "float:left">5기 김가을</div>
+    <div id="k5" class = "secondprizewriter" style = "float:left">8기 정윤승</div>
+
         <div id="p6" class = "secondprizetitle" style="float:left; margin-left:20.104166666666668VW;">노란이불</div>
   <div id="w6" class = "secondprizetitle" style="float:left; margin-left:20.104166666666668VW;">순댓국밥집에서 쓰는 편지</div>
      <div id="t6" class = "secondprizetitle" style="float:left; margin-left:11.804166666666668VW;">소설</div>
