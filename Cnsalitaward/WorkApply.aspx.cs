@@ -27,7 +27,7 @@ namespace Cnsalitaward
                 if (!Page.IsPostBack)
                 {
                     // 넘겨져 온 번호값에 해당하는 글 출력
-                    DisplayData();
+                    //DisplayData();
                 }
                 else
                 {
@@ -39,7 +39,7 @@ namespace Cnsalitaward
                 if (!Page.IsPostBack)
                 {
                     // 넘겨져 온 번호값에 해당하는 글 출력
-                    DisplayData();
+                    //DisplayData();
                 }
                 else
                 {

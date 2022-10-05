@@ -32,10 +32,10 @@
 
           <a href="Introduce?menu=Introduce" class="nav_menu" style="margin-right: 2.5vw; margin-left:2.9VW;">큰별 문학상 소개</a>
     <a href="Honor?menu=Honor" class="nav_menu" style="margin-right: 2.5vw">명예의 전당</a>
-     <a href="#" onclick="alert('현재는 응모할 수 없습니다.')" class="nav_menu" style="margin-right: 2.5vw">작품응모 </a>
-        <a href="WorkList.aspx?page=1" class="nav_menu" style="margin-right: 2.5vw">작품 전시관</a>
-         <a href="CriticList.aspx" class="nav_menu" style="margin-right: 2.5vw">나도 비평가</a> <!--href="CriticList.aspx"-->
-         <a href="Vote.aspx" class="nav_menu" style="margin-right: 2.5vw">내가 뽑은 최고의 작품</a>
+     <a href="WorkApply.aspx" class="nav_menu" style="margin-right: 2.5vw">작품응모 </a>
+        <a href="#" onclick="alert('현재는 조회할 수 없습니다.')" class="nav_menu" style="margin-right: 2.5vw">작품 전시관</a><!--href="WorkList.aspx?page=1"-->
+         <a href="#" onclick="alert('현재는 비평할 수 없습니다.')" class="nav_menu" style="margin-right: 2.5vw">나도 비평가</a> <!--href="CriticList.aspx"-->
+         <a href="#" onclick="alert('현재는 투표할 수 없습니다.')" class="nav_menu" style="margin-right: 2.5vw">내가 뽑은 최고의 작품</a><!--href="Vote.aspx"-->
         <a href="Member.aspx" class="nav_menu">만든이</a>
             <div class="nav-underline"></div>
         </span>

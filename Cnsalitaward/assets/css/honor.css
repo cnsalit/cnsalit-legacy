@@ -27,6 +27,7 @@
     margin: 0;
     user-select: none;
 }
+
 .now {
     margin-left: 45.2vw;
     margin-top: 4.5vw;
@@ -90,7 +91,7 @@
 
 
 .title {
-    width:100%;
+    width: 100%;
     margin-top: 10.88VW;
     font-size: 3.541VW;
     text-align: center;
@@ -254,6 +255,14 @@
     border: 0.05VW solid white;
 }
 
+.fifth {
+    margin-top: 1.1458VW;
+    margin-left: 0.8332VW;
+    width: 70.10432222222VW;
+    height: 0.34375VW;
+    border: 0.05VW solid white;
+}
+
 
 .thirdprize {
     margin-left: 0.833VW;
@@ -319,5 +328,4 @@
     width: 70.875VW;
     height: 2.34375VW;
 }
-
 }
