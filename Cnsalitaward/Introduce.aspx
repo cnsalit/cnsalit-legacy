@@ -103,19 +103,19 @@
   <div  class = "details1" style = "float:left;">
     <div class = "detail1">
       <div  class = "detail" style = "float:left;">응모기간</div>
-      <div  class = "realdetail" style = "float:left;">10.18 (월) ~ 10.25 (월)</div></div>
+      <div  class = "realdetail" style = "float:left;">10.12 (수) ~ 10.24 (월)</div></div>
     <div class = "detail1" style = "margin-top:0.20833333333333334VW;">
       <div class = "detail" style = "float:left;">심사기간</div>
-      <div  class = "realdetail" style = "float:left;">10.26 (화) ~ 11.5 (금)</div></div>
+      <div  class = "realdetail" style = "float:left;">10.26 (수) ~ 11.5 (토)</div></div>
     <div id= class = "detail1" style = "margin-top:0.20833333333333334VW;">
       <div  class = "detail" style = "float:left;">문학제</div>
-      <div  class = "realdetail" style = "float:left;">11.10(수)</div></div>
+      <div  class = "realdetail" style = "float:left;">11.09(수)</div></div>
     <div class = "detail1" style = "margin-top:0.20833333333333334VW; width:40vw; display:inline-block">
       <div class = "detail" style = "float:left; margin-left:0vw;">결과발표</div>
-      <div  class = "realdetail" style = "float:left;">11.10 (수)</div></div>
+      <div  class = "realdetail" style = "float:left;">11.09 (수)</div></div>
     <div  class = "detail1" style = "margin-top:0.20833333333333334VW;">
       <div class = "detail" style = "float:left;">작품집 배부</div>
-      <div class = "realdetail" style = "float:left;">12.6 (월) ~ 12.17 (금)</div></div>
+      <div class = "realdetail" style = "float:left;">12.6 (화) ~ 12.17 (토)</div></div>
 </div>
 </div>
   
