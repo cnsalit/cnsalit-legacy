@@ -103,7 +103,7 @@
   <div  class = "details1" style = "float:left;">
     <div class = "detail1">
       <div  class = "detail" style = "float:left;">응모기간</div>
-      <div  class = "realdetail" style = "float:left;">10.12 (수) ~ 10.24 (월)</div></div>
+      <div  class = "realdetail" style = "float:left;">10.25 (화) ~ 10.31 (월)</div></div>
     <div class = "detail1" style = "margin-top:0.20833333333333334VW;">
       <div class = "detail" style = "float:left;">심사기간</div>
       <div  class = "realdetail" style = "float:left;">10.26 (수) ~ 11.5 (토)</div></div>
