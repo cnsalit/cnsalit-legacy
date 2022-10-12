@@ -54,7 +54,7 @@
         </a>
 </div>
                 </td>
-                    <td onclick="location.href='Vote.aspx'"  style="cursor:pointer; width:20% ;height:14VW;background-image:url('/assets/img/vote.jpg'); background-size:contain; border:none" >
+                    <td <%--onclick="location.href='Vote.aspx'"--%>  onclick="alert('현재는 투표할 수 없습니다.')" style="cursor:pointer; width:20% ;height:14VW;background-image:url('/assets/img/vote.jpg'); background-size:contain; border:none" >
                 </td>
                 <td  style=" width:20% ;height:14VW; border:none; background-image:url('/assets/img/default1.jpg'); background-size:contain;" >
                 </td>
@@ -65,9 +65,9 @@
         <tr >
             <td  style="cursor:pointer; background-image :url('/assets/img/default2.jpg'); background-size:contain;"> 
             </td>
-            <td  onclick="location.href='WorkList.aspx'"  style="cursor:pointer; background-image:url('/assets/img/see.jpg'); background-size:contain;">
+            <td  <%--onclick="location.href='WorkList.aspx'"--%> onclick="alert('현재는 조회할 수 없습니다.')"  style="cursor:pointer; background-image:url('/assets/img/see.jpg'); background-size:contain;">
             </td>
-            <td  onclick="location.href='CriticList.aspx'"style="cursor:pointer;background-image:url('/assets/img/critic.jpg'); background-size:contain;" >
+            <td  <%--onclick="location.href='CriticList.aspx'"--%> onclick="alert('현재는 비평할 수 없습니다.')" style="cursor:pointer;background-image:url('/assets/img/critic.jpg'); background-size:contain;" >
             </td>
             <td style="background-image:url('/assets/img/default3.jpg'); background-size:contain;">
             </td>

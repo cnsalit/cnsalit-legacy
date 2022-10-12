@@ -12,6 +12,7 @@
 <form id="form2" runat="server">
   
        <div style=" height:49vw;">
+           <%--투표 기간에 사용하는 화면--%>
             <div style="width:101vw; color:white; margin-top: 3vw; margin-left:1vw; text-align:center;color:white !important;margin-right:1vw;">
                 <div style="font-size:6vw; margin-bottom:1vw;" class="Dokdo">투표하셨나요?</div>
                 <div style="color:white; margin-left:10vw; margin-right:10vw; margin-top:2vw; font-size:1.5vw" class="Noto">아직도 <span class="NotoB" style="font-weight:bold; color:darkblue">투표</span>하지 않았다면?</div>

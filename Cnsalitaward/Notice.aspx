@@ -36,7 +36,7 @@
 				<asp:Label ID="titlev" runat="server" Text="" CssClass="NotoB" style="margin-top: -1vw; margin-bottom:1vw; font-size:2.5vw;"></asp:Label>
 				<div style="font-size:2vw; color:midnightblue; cursor:pointer" class="NotoB">산문      <span style="font-size:1vw; color:midnightblue; cursor:pointer" class="NotoB" onclick="location.href='/Work2?Id='+<%=id2%>+'&kind=prose'" >[지금 보러가기]</span></div>
                 <asp:Label ID="titlep" runat="server" Text="" CssClass="NotoB" style="font-size:2.5vw; margin-top:3vw"></asp:Label>
-
+                <%--1차 오픈 이후에 쓰이는 알림 공지--%>
                 <div style="color:white; margin-left:10vw; margin-right:10vw; margin-top:2vw; font-size:1.5vw" class="Noto">친구들이 올린 작품을 읽고 비평문을 써주세요!</div>
                 <div style="color:white; margin-left:10vw; margin-right:10vw; margin-top:0vw; font-size:1.5vw" class="Noto">비평문을 열심히 작성하고 활발하게 활동하여 <span class="NotoB" style="font-weight:bold; color:darkblue">최고의 독자</span>가 되어보세요!</div>
                 <div style="margin-top: 2vw; font-size:1.5vw; color:white;" class="Noto">많은 참여 바랄게요!</div>
