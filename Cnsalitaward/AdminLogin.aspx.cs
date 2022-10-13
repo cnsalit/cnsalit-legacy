@@ -46,7 +46,7 @@ namespace Cnsalitaward
                         Session["PenName"] = (string)rdr["Penname"];
 					}
                     
-                    Response.Redirect("/Vote");
+                    Response.Redirect("/Default");
                     con.Close();
 				}   
 				else
