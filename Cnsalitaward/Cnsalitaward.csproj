@@ -131,12 +131,14 @@
     <Content Include="assets\img\background5.png" />
     <Content Include="assets\img\care4.png" />
     <Content Include="assets\img\care5.png" />
+    <Content Include="assets\img\care6.png" />
     <Content Include="assets\img\default10.jpg" />
     <Content Include="assets\img\default16.jpg" />
     <Content Include="assets\img\log-out.png" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="assets\img\login.PNG" />
     <Content Include="assets\img\notice.png" />
+    <Content Include="assets\img\notice1.png" />
     <Content Include="assets\img\notice2.png" />
     <Content Include="assets\img\notice_test.png" />
     <Content Include="assets\img\popup.jpg" />
