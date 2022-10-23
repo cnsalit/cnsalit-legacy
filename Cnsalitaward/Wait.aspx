@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
-<body style="background: url('/assets/img/background5.png'); background-size:cover; display:flex; justify-content:center; align-content:center; overflow:hidden; user-select:none;">
+<body style="background: url('/assets/img/background5.png'); background-size:cover; display:flex; justify-content:center; align-content:center; overflow:hidden; user-select:none; background-repeat:no-repeat ">
 <form id="form1" runat="server">
         <div style=" height:49vw;">
             <div style="width:101vw; color:white; margin-top: 18vw; margin-left:1vw; text-align:center;color:white !important;margin-right:1vw;">
