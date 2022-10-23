@@ -7,10 +7,12 @@
 // </자동 생성됨>
 //------------------------------------------------------------------------------
 
-namespace Cnsalitaward {
+namespace Cnsalitaward
+{
 
 
-    public partial class Wait {
+    public partial class Wait
+    {
 
         /// <summary>
         /// form1 컨트롤입니다.
@@ -20,5 +22,14 @@ namespace Cnsalitaward {
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// check 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button check;
     }
 }

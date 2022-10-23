@@ -15,7 +15,7 @@ namespace Cnsalitaward
         }
         protected void Move_Click(object sender,EventArgs e)
 		{
-            Response.Redirect("/Default");
+            Response.Redirect("/Default.aspx");
 		}
         
     }
