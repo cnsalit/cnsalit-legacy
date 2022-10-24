@@ -45,7 +45,7 @@ namespace Cnsalitaward
                         Session["PenName"] = (string)rdr["Penname"];
                     }
                     
-                    Response.Redirect("/Wait.aspx");
+                    Response.Redirect("/Default.aspx");
                     con.Close();
 				}   
 				else
