@@ -76,7 +76,7 @@
   <div class = "attachments NotoM" style = "float:left;">첨부파일</div>
   <div class = "verticalline" style = "float:left; margin-left:0.859VW; margin-top:1.69VW;">
   </div>
-        <div style="width:60vw; position:absolute; left:24.3vw; top:117.3vw; font-size:1vw; color:red;">※ 텍스트만으로 표현이 안 되어 첨부파일로 제출이 필요한 경우, 작품을 첨부파일로 올릴 수 있습니다. 단, 본문에도 내용은 동일하게 제출바랍니다.</div>
+        <div style="width:60vw; position:absolute; left:24.3vw; top:117.3vw; font-size:1vw; color:red;">※ 텍스트만으로 표현이 안되어 첨부파일로 제출이 필요한 경우, [likedis7@cnsa.hs.kr]로 제출해주세요</div>
    <asp:FileUpload ID="File" runat="server" style="margin-top:4.79VW;margin-left:-6.81VW;" />
   
     <!--- <asp:Button ID="Download" OnClick="Download_Click" runat="server" Text="양식 다운로드" /> --->
