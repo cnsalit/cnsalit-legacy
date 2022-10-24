@@ -65,7 +65,7 @@
         <tr >
             <td  style="cursor:pointer; background-image :url('/assets/img/default2.jpg'); background-size:contain;"> 
             </td>
-            <td  <%--onclick="location.href='WorkList.aspx'"--%> onclick="alert('현재는 조회할 수 없습니다.')"  style="cursor:pointer; background-image:url('/assets/img/see.jpg'); background-size:contain;">
+            <td  onclick="location.href='WorkList.aspx?page=1'" <%--onclick="alert('현재는 조회할 수 없습니다.')"--%>  style="cursor:pointer; background-image:url('/assets/img/see.jpg'); background-size:contain;">
             </td>
             <td  <%--onclick="location.href='CriticList.aspx'"--%> onclick="alert('현재는 비평할 수 없습니다.')" style="cursor:pointer;background-image:url('/assets/img/critic.jpg'); background-size:contain;" >
             </td>

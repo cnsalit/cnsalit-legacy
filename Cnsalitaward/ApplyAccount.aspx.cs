@@ -45,6 +45,7 @@ namespace Cnsalitaward
 			{
 				if (Session["onlyNum"] != null && Session["onlyID"] != null && Session["onlyPenname"] != null)
 				{
+					
 					if (userPW == userPW2)
 					{
 						MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);

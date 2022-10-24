@@ -77,10 +77,10 @@
   <div class = "verticalline" style = "float:left; margin-left:0.859VW; margin-top:1.69VW;">
   </div>
         <div style="width:60vw; position:absolute; left:24.3vw; top:117.3vw; font-size:1vw; color:red;">※ 텍스트만으로 표현이 안되어 첨부파일로 제출이 필요한 경우, [likedis7@cnsa.hs.kr]로 제출해주세요</div>
-   <asp:FileUpload ID="File" runat="server" style="margin-top:4.79VW;margin-left:-6.81VW;" />
+   <%--<asp:FileUpload ID="File" runat="server" style="margin-top:4.79VW;margin-left:-6.81VW;" />--%>
   
     <!--- <asp:Button ID="Download" OnClick="Download_Click" runat="server" Text="양식 다운로드" /> --->
-            <div style="color:red;margin-left: 1.3vw;margin-top: 1vw;font-size: 1.5vw;" class="NotoB"> 주어진 양식, 분량, 조건에 맞지 않을 시 수상대상에서 제외될 수 있습니다.</div>
+            <%--<div style="color:red;margin-left: 1.3vw;margin-top: 1vw;font-size: 1.5vw;" class="NotoB"> 주어진 양식, 분량, 조건에 맞지 않을 시 수상대상에서 제외될 수 있습니다.</div>--%>
 
         </div>
   <!---- 등록 --->

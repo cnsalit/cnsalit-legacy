@@ -43,7 +43,7 @@
             <div style="float: left;border:none #002897 0.05VW;margin-left: 62VW;margin-right: 0.8VW; width:7.44vw; height:0.2VW; background-color:#002897; margin-top:1.66VW;"></div>
                 <asp:TextBox ID="Search" runat="server" style="float:left; border:solid 0.05VW;width:14.89VW;height:1.875VW" placeholder="검색어를 입력하세요." ></asp:TextBox>
                 <asp:Imagebutton ID="Searchbtn" ImageUrl="/assets/img/search.jpg" runat="server" OnClick="Searching" style="cursor:pointer ;width:0.625VW; height:0.625VW; position:absolute;z-index:3;margin-left:-1.0416666666666665VW; margin-top:0.625VW"></asp:Imagebutton>
-                <asp:DropDownList ID="TitleorContent" AutoPostBack="false" style="float:left;font-size:0.9375VW;color:#5A5A5A ;;margin-left:62.86VW;width:6.77VW;height:1.875VW;margin-top:-2.08VW; border:none" runat="server">
+                <asp:DropDownList ID="TitleorContent" AutoPostBack="false" style="float:left;font-size:0.9375VW;color:#5A5A5A;margin-left:62.86VW;width:6.77VW;height:1.875VW;margin-top:-2.08VW; border:none" runat="server">
                     <asp:ListItem Selected="True" Value="Title">제목</asp:ListItem>
                     <asp:ListItem Value="Contents">내용</asp:ListItem>
                 </asp:DropDownList>
