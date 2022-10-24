@@ -77,7 +77,7 @@
   <div class = "verticalline" style = "float:left; margin-left:0.859VW; margin-top:1.69VW;">
   </div>
         <div style="width:60vw; position:absolute; left:24.3vw; top:117.3vw; font-size:1vw; color:red;">※ 텍스트만으로 표현이 안되어 첨부파일로 제출이 필요한 경우, [likedis7@cnsa.hs.kr]로 제출해주세요</div>
-        <asp:Button ID="Download" OnClick="Download_Click" runat="server" style="margin-top:4.79VW;margin-left:-6.81VW;" Text="양식 다운로드" /> 
+        <%--<asp:Button ID="Download" OnClick="Download_Click" runat="server" style="margin-top:4.79VW; visibility : hidden; margin-left:-6.81VW;" Text="양식 다운로드" />--%> 
         <%--<asp:FileUpload ID="File" runat="server" style="margin-top:4.79VW;margin-left:-6.81VW;" />--%>
   
      <%--<asp:Button ID="Download" OnClick="Download_Click" runat="server" style="margin-top:4.79VW;margin-left:-6.81VW;" Text="양식 다운로드" />--%> 
