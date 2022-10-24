@@ -83,48 +83,48 @@ namespace Cnsalitaward
         }
 
 
-        //protected int UploadFile(string kind)
-        //{
+        protected int UploadFile(string kind)
+        {
 
-        //    string fileName = System.IO.Path.GetFileName(File.PostedFile.FileName);
-        //    string path = Server.MapPath("~/Uploads/" + fileName);
-        //    FileInfo file = new FileInfo(path);
-        //    if (File.HasFile)
-        //    {
-        //        if (file.Exists)
-        //        {
-        //            file.Delete();
-        //            File.PostedFile.SaveAs(Server.MapPath("~/Uploads/" + kind + "/" + fileName));
-        //        }
-        //        else
-        //        {
-        //            File.PostedFile.SaveAs(Server.MapPath("~/Uploads/" + kind + "/" + fileName));
-        //        }
-        //        return 0;
-        //    }
-        //    else
-        //    {
-        //        return -1;
-        //    }
+            string fileName = System.IO.Path.GetFileName(File.PostedFile.FileName);
+            string path = Server.MapPath("~/Uploads/" + fileName);
+            FileInfo file = new FileInfo(path);
+            if (File.HasFile)
+            {
+                if (file.Exists)
+                {
+                    file.Delete();
+                    File.PostedFile.SaveAs(Server.MapPath("~/Uploads/" + kind + "/" + fileName));
+                }
+                else
+                {
+                    File.PostedFile.SaveAs(Server.MapPath("~/Uploads/" + kind + "/" + fileName));
+                }
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
 
-        //}
-        //protected void SaveFile(string kind, string part)
-        //{
+        }
+        protected void SaveFile(string kind, string part)
+        {
 
-        //    string fileName = System.IO.Path.GetFileName(File.PostedFile.FileName);
-        //    string path = Server.MapPath("~/Uploads/" + part + "/" + fileName);
-        //    FileInfo file = new FileInfo(path);
-        //    if (File.HasFile)
-        //    {
-        //        file.Delete();
-        //        File.PostedFile.SaveAs(Server.MapPath("~/Uploads/" + kind + "/" + fileName));
-
-
-        //    }
+            string fileName = System.IO.Path.GetFileName(File.PostedFile.FileName);
+            string path = Server.MapPath("~/Uploads/" + part + "/" + fileName);
+            FileInfo file = new FileInfo(path);
+            if (File.HasFile)
+            {
+                file.Delete();
+                File.PostedFile.SaveAs(Server.MapPath("~/Uploads/" + kind + "/" + fileName));
 
 
+            }
 
-        //}
+
+
+        }
 
 
         protected void Upload_Click(object sender, EventArgs e)
