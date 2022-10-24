@@ -64,7 +64,7 @@
   
         <asp:Button runat="server" Text="수정" ID="Modifybtn" Onclick="Modify_Click" class = "rewrite" style = "margin-left:50vw !important; margin-top:-2.35vw !important;  cursor:pointer; border:1px solid white; font-size:1.3vw; float:left"></asp:Button>
 <asp:Button runat="server" Text="삭제" ID="Deletebtn" OnClick="Delete_Click"  onclientclick="return DeleteItem();" class = "delete" style = "border:1px solid white;  cursor:pointer; font-size:1.3vw; float:left"></asp:Button>
-    <asp:Button ID="downloadbtn" OnClick="Download_Click" style="float:right; border:1px solid white; font-size:1.3vw; margin-top:-2.8vw !important; margin-right:1.8vw;  cursor:pointer" CssClass="delete" runat="server" Text="다운로드" />
+    <asp:Button ID="downloadbtn" style="float:right; border:1px solid white; font-size:1.3vw; margin-top:-2.8vw !important; margin-right:1.8vw; " CssClass="delete" runat="server" Text="" /><%--OnClick="Download_Click"--%><%--cursor:pointer--%>
   <div class = "blueline"></div>
   
   <div class = "maintext"><%=work.Content %>
