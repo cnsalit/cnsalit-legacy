@@ -40,7 +40,7 @@
         <div class="carousel-item"><img style="width:100% ;height:14VW" src="assets/img/care2.jpg" alt="Slide One ;"></div>
         <div class="carousel-item"><img style="width:100% ;height:14VW" src="assets/img/care4.png" alt="Slide One ;"></div>
         <div class="carousel-item"><img style="width:100% ;height:14VW" src="assets/img/care5.png" alt="Slide One ;"></div>
-        <div class="carousel-item"><img style="width:100% ;height:14VW" src="assets/img/care7.png" alt="Slide One;"</div>
+        <div class="carousel-item"><img style="width:100% ;height:14VW" src="assets/img/care6.png" alt="Slide One;"</div>
 
     </div>
     <!-- Carousel nav -->
