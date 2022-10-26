@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.UI;
@@ -32,7 +33,12 @@ namespace Cnsalitaward
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@ID", UserID.Text);
-                cmd.Parameters.AddWithValue("@PW", UserPW.Text);
+
+                //비밀번호 SHA256 Hash
+                SHA256 sha = new SHA256Managed();
+                byte[] hashedUserPW_bytes = sha.ComputeHash(Encoding.ASCII.GetBytes(UserPW.Text));
+                string hashedUserPW_string = Convert.ToBase64String(hashedUserPW_bytes, 0, hashedUserPW_bytes.Length);
+                cmd.Parameters.AddWithValue("@PW", hashedUserPW_string);
 
                 object obj = cmd.ExecuteScalar();
                 MySqlDataReader rdr = cmd.ExecuteReader();

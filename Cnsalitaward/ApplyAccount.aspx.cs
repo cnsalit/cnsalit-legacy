@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+//Hash를 위해 추가
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Cnsalitaward
 {
@@ -59,11 +62,17 @@ namespace Cnsalitaward
 						//r.Next();
 						//userPN = DateTime.Now.ToString("yy") + userPN + r.Next(1, 99);
 
+						//비밀번호 SHA256 Hash
+						SHA256 sha = new SHA256Managed();
+						byte[] hashedUserPW_bytes = sha.ComputeHash(Encoding.ASCII.GetBytes(userPW));
+						string hashedUserPW_string = Convert.ToBase64String(hashedUserPW_bytes, 0, hashedUserPW_bytes.Length);
+
 						cmd.Parameters.Add("RealName", MySqlDbType.VarChar).Value = realNAME;
 						cmd.Parameters.Add("RealNum", MySqlDbType.Int32).Value = realNUM;
 						cmd.Parameters.Add("UserID", MySqlDbType.VarChar).Value = userID;
+						// cmd.Parameters.Add("UserPW", MySqlDbType.VarChar).Value = hashedUserPW_string;
 						cmd.Parameters.Add("UserPW", MySqlDbType.VarChar).Value = userPW;
-						cmd.Parameters.Add("PenName", MySqlDbType.VarChar).Value = userPN;
+                        cmd.Parameters.Add("PenName", MySqlDbType.VarChar).Value = userPN;
 						cmd.ExecuteNonQuery();
 
 						Response.Redirect("/Login");
