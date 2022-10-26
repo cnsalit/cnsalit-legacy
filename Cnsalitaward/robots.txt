@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /AdminLogin/
+
+User-agent: *
+Disallow: /AdminLogin/
+
+Sitemap: https://www.cnsalit.com/Login.aspx

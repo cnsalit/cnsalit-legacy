@@ -80,7 +80,7 @@
                     <div class="tracking-in-contract2 origin" style="margin:0;" >[ 큰별문학상 페이지 4대 개발자 ]</div>
                     <div class="tracking-in-expand2 role" style="margin-top:6vw; margin-left:-1Vw">Back-End Developer <h class="name">&nbsp;&nbsp;&nbsp;8기 임진성 & 8기 안철민</h></div>
                     <div class="tracking-in-expand2 role" style="margin-top:3.5vw;margin-left:-1Vw">Front-End Developer <h class="name">&nbsp;&nbsp;&nbsp;8기 임진성 & 8기 정윤승</h></div>
-                    <div class="tracking-in-expand2 role"  style="margin-top:3.5vw;margin-left:-1Vw">Designer <h class="name">&nbsp;&nbsp;&nbsp;5기 이서윤 & 8기 정윤승</h></div>
+                    <div class="tracking-in-expand2 role"  style="margin-top:3.5vw;margin-left:-1Vw">Designer <h class="name">&nbsp;&nbsp;&nbsp;8기 정윤승 & 8기 박유민</h></div>
                 </div>
             </div>
         </div>
