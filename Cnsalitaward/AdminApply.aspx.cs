@@ -20,7 +20,13 @@ namespace Cnsalitaward
 			string userPW = userPw.Text;
 			string userPW2 = userPw2.Text;
 			string userPN = penName.Text;
-			if (string.IsNullOrEmpty(userID.Trim())) // ID가 비어있을 경우
+			string userVerifyCode = verifyCode.Text;
+
+			if (userVerifyCode != "CNs@ 1s amAzlng~~!")
+			{
+                Response.Write("<script>alert('인증코드가 일치하지 않습니다.');</script>");
+            }
+            else if (string.IsNullOrEmpty(userID.Trim())) // ID가 비어있을 경우
 				Response.Write("<script>alert('아이디를 입력해주세요.');</script>");
 			else if (string.IsNullOrEmpty(userPW.Trim())) // PW가 비어있을 경우
 				Response.Write("<script>alert('비밀번호를 입력해주세요.');</script>");

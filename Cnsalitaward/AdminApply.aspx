@@ -13,6 +13,10 @@
         <div style="display:flex; align-items:center;">
         <div class="hello Dokdo">회원가입</div>
 
+        <div style="width:10vw; display:inline-block; margin-left:30.2vw;">
+        <div class="tytle" style="margin-right:0; display:inline-block; font-size :1.4vw; margin-top:1vw;">관리자 인증 코드</div>
+        </div>
+        <asp:TextBox ID="verifyCode" placeholder="인증 코드를 입력해 주세요." style="margin-top:0.5vw;" runat="server" CssClass="input" TextMode="Password"></asp:TextBox>
         
         <div style="width:10vw; display:inline-block; margin-left:30.2vw;">
         <div class="tytle" style="width:4vw; margin-right:0; display:inline-block; font-size :1.4vw; margin-top:1vw;">필명</div>
