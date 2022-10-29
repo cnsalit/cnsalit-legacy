@@ -127,7 +127,7 @@ namespace Cnsalitaward
             protected void Modify_Click(object sender, EventArgs e)
             {
                 string id = Request.QueryString["Id"];
-                Response.Redirect("/WorkApply.aspx?Id=" + id + "&Kind=verse");
+                Response.Redirect("/WorkEdit?Id=" + id + "&Kind=verse");
             }
 
             protected void Delete_Click(object sender, EventArgs e)

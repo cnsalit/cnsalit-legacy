@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cnsalitaward.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -173,7 +174,15 @@ namespace Cnsalitaward
 
                         }, kind);
                         //Response.Redirect("/Notice.aspx");
-                        Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('제출되었습니다.')", true);
+                        string href2go = "";
+                        if (kind == "verse")
+                            href2go = "/WorkList";
+                        else if (kind == "prose")
+                            href2go = "/WorkList2";
+                        else
+                            Response.Redirect("/Error");
+
+                        Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('제출되었습니다.'); document.location.href=\"" + href2go + "\";", true);
 
                     }
                 }
@@ -204,32 +213,6 @@ namespace Cnsalitaward
                 int id = Convert.ToInt32(Request.QueryString["Id"].ToString());
                 if (part == kind)
                 {
-                    if (File.HasFile)
-                    {
-                        string fileName = System.IO.Path.GetFileName(File.PostedFile.FileName); Managers.WorkManager.ModifyFile(new Models.Work
-                        {
-                            Id = id,
-                            FileName = fileName
-
-
-
-                        }, kind);
-
-
-                        SaveFile(kind, part);
-
-                    }
-
-                    Managers.WorkManager.ModifyWork(new Models.Work
-                    {
-                        Title = Titletxt.Text,
-                        Content = Contenttxt.Text,
-                        Brief = Brieftxt.Text,
-                        Id = id
-                        
-
-
-                    }, kind);
                 }
                 else
                 {

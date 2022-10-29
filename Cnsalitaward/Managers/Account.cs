@@ -1,6 +1,9 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Cnsalitaward.Models;
+using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -43,6 +46,7 @@ namespace Cnsalitaward.Managers
                 conn.Close();
             }
         }
+
         public static string CheckAdmin(string UserID)
         {
             MySqlConnection conn = null;
@@ -150,6 +154,49 @@ namespace Cnsalitaward.Managers
             }
 
             return context.Request.ServerVariables["REMOTE_ADDR"];
+        }
+
+        public static bool CheckWorkAdministrator(int workId, string userId, bool prose=false, bool verse=false)
+        {
+            // 관리자 예외
+            if(CheckAdmin(userId) == "admin")
+            {
+                return true;
+            }
+
+            // 일반 사용자, 본인 확인.
+            else
+            {
+                MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
+                con.Open();
+
+                //ex) SELECT EXISTS(SELECT * FROM verse WHERE Id=39 && UserID="abcd" LIMIT 1) AS SUCCESS
+                MySqlCommand cmd = new MySqlCommand("SELECT EXISTS(SELECT * FROM @kind WHERE Id=@workId && UserID=\"@userId\" LIMIT 1) AS SUCCESS", con);
+                cmd.Parameters.AddWithValue("@workId", workId);
+                cmd.Parameters.AddWithValue("@userId", userId);
+
+                //부문 입력
+                if (prose == true)
+                    cmd.Parameters.AddWithValue("@kind", "prose");
+
+                else if (verse == true)
+                    cmd.Parameters.AddWithValue("@kind", "verse");
+
+                else
+                    con.Close();
+                    return false;
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                reader.Read();
+                bool isMine = reader["SUCCESS"].Equals(1);      //본인일 시 true, 아니면  false
+                reader.Close();
+
+                con.Close();
+                if (isMine)
+                    return true;
+                else
+                    return false;
+            }
         }
 
     }

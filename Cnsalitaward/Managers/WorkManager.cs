@@ -1,10 +1,14 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Cnsalitaward.Models;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Utilities.Collections;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
+using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace Cnsalitaward.Managers
 {
@@ -98,37 +102,45 @@ namespace Cnsalitaward.Managers
                 conn.Close();
             }
         }
-        //작품 수정
-        public static int ModifyWork(Models.Work work, string kind)
-        {
-            MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
-            MySqlCommand cmd = new MySqlCommand("update " + kind + " Set  Title = @Title, Brief=@Brief,Content = @Content where Id=" + work.Id, con);
 
+        //작품 수정
+        public static int ModifyWork(int workId, string title, string brief, string content, string kind)
+        {
+            MySqlConnection con = null;
+            string sql = "";
             try
             {
+                // Connect to DB;
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
                 con.Open();
-                int result = 0;
 
+                // Connect to Database
+                // UPDATE verse SET Title = "운문일걸", Brief = "요약이다", Content = "본문이다" WHERE Id = 39;
+                sql = "UPDATE " + kind + " SET (Title=\"" + title + "\", Brief=\"" + brief + "\", Content=\"" + content + "t\", Work_At=\"" + DateTime.Now.ToString("yyyy-MM-dd") + "\") WHERE Id = " + workId;
+                MySqlCommand cmd = new MySqlCommand(sql, con);
 
-                cmd.Parameters.AddWithValue("@Title", work.Title);
-                cmd.Parameters.AddWithValue("@Brief", work.Brief);
-                cmd.Parameters.AddWithValue("@Content", work.Content.Replace("\r\n", "<br/>"));
-                result = cmd.ExecuteNonQuery();
+                // Add 
+                /*
+                cmd.Parameters.AddWithValue("@title", title);
+                cmd.Parameters.AddWithValue("@brief", brief);
+                cmd.Parameters.AddWithValue("@content", content.Replace("\r\n", "<br/>"));
 
+                cmd.Parameters.AddWithValue("@kind", kind);
+                cmd.Parameters.AddWithValue("@workAt", DateTime.Now);
+                cmd.Parameters.AddWithValue("@workId", workId);*/
 
-                return result;
-
+                return cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                // TODO: 예외 처리
+                throw new Exception(sql);
+                //throw new Exception(e.Message);
             }
             finally
             {
                 con.Close();
             }
-
-
         }
         public static int ModifyFile(Models.Work work, string kind)
         {

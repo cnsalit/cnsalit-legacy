@@ -70,8 +70,8 @@ namespace Cnsalitaward
 						cmd.Parameters.Add("RealName", MySqlDbType.VarChar).Value = realNAME;
 						cmd.Parameters.Add("RealNum", MySqlDbType.Int32).Value = realNUM;
 						cmd.Parameters.Add("UserID", MySqlDbType.VarChar).Value = userID;
-						// cmd.Parameters.Add("UserPW", MySqlDbType.VarChar).Value = hashedUserPW_string;
-						cmd.Parameters.Add("UserPW", MySqlDbType.VarChar).Value = userPW;
+						cmd.Parameters.Add("UserPW", MySqlDbType.VarChar).Value = hashedUserPW_string;
+						// cmd.Parameters.Add("UserPW", MySqlDbType.VarChar).Value = userPW;
                         cmd.Parameters.Add("PenName", MySqlDbType.VarChar).Value = userPN;
 						cmd.ExecuteNonQuery();
 
