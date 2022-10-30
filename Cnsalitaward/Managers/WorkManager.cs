@@ -397,7 +397,7 @@ namespace Cnsalitaward.Managers
                 int HotCount = Convert.ToInt32(cmd.ExecuteScalar());
                 
                 // Get 
-                sql = "SELECT Id, Penname,Title,Likes,Views,Work_At FROM " + kind + " Where Likes > 5 ORDER BY Likes DESC LIMIT 3";
+                sql = "SELECT Id, Penname,Title,Likes,Views,Work_At FROM " + kind + " Where Likes > 5 ORDER BY Likes DESC LIMIT 3";//추천수 5개 이상
                 cmd.CommandText = sql;
 
                 var dr = cmd.ExecuteReader();
