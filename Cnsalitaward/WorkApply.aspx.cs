@@ -160,7 +160,7 @@ namespace Cnsalitaward
 
                         }, kind);
                         //Response.Redirect("/Notice.aspx");
-                        Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('제출되었습니다.')", true);
+                        Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('제출되었습니다.'); document.location.href=\"/MyPage\";", true);
 
                     }
                     else 
@@ -186,7 +186,7 @@ namespace Cnsalitaward
                         else
                             Response.Redirect("/Error");
 
-                        Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('제출되었습니다.'); document.location.href=\"" + href2go + "\";", true);
+                        Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('제출되었습니다.'); document.location.href=\"/MyPage\";", true);
 
                     }
                 }
