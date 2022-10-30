@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Cnsalitaward.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -118,19 +119,17 @@ namespace Cnsalitaward
         protected void Delete_Click(object sender, EventArgs e)
         {
             string kind = "prose";
-            string number = Request.QueryString["Id"].ToString();
-            ; int id = Convert.ToInt32(number);
-            Cnsalitaward.Managers.WorkManager.DeleteQuestion(id, kind);
-            try
-            {
+            int id = Convert.ToInt32(Request.QueryString["Id"].ToString());
+            int page = id / 10 + 1;
 
-                id = id / 10;
-                if (id == 0) id = 1;
-            }
-            catch (Exception a)
+            // 글 관리 권한이 없을시 실행(참고: CheckWorkAdminstrator는 Non-greedy=탐욕스럽지않으며 post가 존재하지 않으면 false를 반환함.)
+            if (!Cnsalitaward.Managers.Account.CheckWorkAdministrator(id, Session["UserID"].ToString(), true, false))
             {
-                id = 1;
+                Response.Redirect("/Error");
             }
+
+            Cnsalitaward.Managers.WorkManager.DeleteQuestion(id, kind);
+
             if (kind == "verse") Response.Redirect("/WorkList.aspx?page=" + id);
             if (kind == "prose") Response.Redirect("/WorkList2.aspx?page=" + id);
         }
