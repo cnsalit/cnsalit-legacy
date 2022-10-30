@@ -27,19 +27,23 @@ namespace Cnsalitaward.Managers
                 string sql = "SELECT * FROM " + kind + " WHERE Id=" + Id + ";";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 var rdr = cmd.ExecuteReader();
-                rdr.Read();
-                Models.Work work = new Models.Work
+                Models.Work work = null;
+
+                if (rdr.Read())
                 {
-                    Id = (int)rdr["Id"],
-                    UserID = (string)rdr["UserID"],
-                    Author = (string)rdr["Penname"],
-                    Brief = (string)rdr["Brief"],
-                    Title = (string)rdr["Title"],
-                    Content = (string)rdr["Content"],
-                    Like = (int)rdr["Likes"],
-                    View = (int)rdr["Views"],
-                    Date = (DateTime)rdr["Work_At"]
-                };
+                    work = new Models.Work
+                    {
+                        Id = (int)rdr["Id"],
+                        UserID = (string)rdr["UserID"],
+                        Author = (string)rdr["Penname"],
+                        Brief = (string)rdr["Brief"],
+                        Title = (string)rdr["Title"],
+                        Content = (string)rdr["Content"],
+                        Like = (int)rdr["Likes"],
+                        View = (int)rdr["Views"],
+                        Date = (DateTime)rdr["Work_At"]
+                    };
+                }
                 rdr.Close();
                 return work;
             }
@@ -525,6 +529,39 @@ namespace Cnsalitaward.Managers
                 
                 conn.Close();
             }
+        }
+
+        public static List<Models.Work> GetWorkByUser(string userID, string kind)
+        {
+            List<Models.Work> workList = new List<Models.Work>();
+            string sql = "";
+            MySqlCommand cmd = null;
+
+            // Connect to DB;
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
+            con.Open();
+
+            sql = String.Format("SELECT Id, Title, Penname, Views, Likes, Work_At FROM {1} WHERE USerID=\"{0}\"", userID, kind);
+            cmd = new MySqlCommand(sql, con);
+
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                workList.Add(new Models.Work
+                {
+                    Id = (int)reader["Id"],
+                    Title = (string)reader["Title"],
+                    Author = (string)reader["Penname"],
+                    Like = (int)reader["Likes"],
+                    View = (int)reader["Views"],
+                    Date = (DateTime)reader["Work_At"]
+                });
+            }
+            reader.Close();
+            con.Close();
+
+            return workList;
         }
 
         /// Get Works by Searching
