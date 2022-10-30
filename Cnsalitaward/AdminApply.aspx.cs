@@ -49,10 +49,6 @@ namespace Cnsalitaward
                         // string sql = "INSERT INTO Adminaccount(UserID, UserPW, Penname) VALUES(?,?,?)";
                         MySqlCommand cmd = new MySqlCommand(sql, con);
 
-						Random r = new Random();
-						r.Next();
-						userPN = DateTime.Now.ToString("yy") + userPN + r.Next(1, 99);
-
                         //비밀번호 SHA256 Hash
                         SHA256 sha = new SHA256Managed();
                         byte[] hashedUserPW_bytes = sha.ComputeHash(Encoding.ASCII.GetBytes(userPW));
@@ -64,8 +60,8 @@ namespace Cnsalitaward
                         cmd.Parameters.Add("Admin", MySqlDbType.VarChar).Value = Constants.verifyCode;
                         cmd.ExecuteNonQuery();
 
-						Response.Redirect("/login");
-						con.Close();
+                        con.Close();
+                        Response.Redirect("/login");
 					}
 					else
 					{

@@ -11,12 +11,7 @@
 </head>
 <form id="form1" runat="server">
         <div style="display:flex; align-items:center;">
-        <div class="hello Dokdo">회원가입</div>
-
-        <div style="width:10vw; display:inline-block; margin-left:30.2vw;">
-        <div class="tytle" style="margin-right:0; display:inline-block; font-size :1.4vw; margin-top:1vw;">관리자 인증 코드</div>
-        </div>
-        <asp:TextBox ID="verifyCode" placeholder="인증 코드를 입력해 주세요." style="margin-top:0.5vw;" runat="server" CssClass="input" TextMode="Password"></asp:TextBox>
+        <div class="hello Dokdo">관리자 가입</div>
 
         <div style="width:10vw; display:inline-block; margin-left:30.2vw; margin-top:2vw;">
         <div class="tytle" style="width:4vw; margin-right:0; display:inline-block; font-size :1.4vw; margin-top:0.5vw;">필명</div>
@@ -40,6 +35,11 @@
         <div class="tytle" style="margin-left:-16.7vw; margin-top:1vw;">비밀번호 재확인</div>
         <asp:TextBox ID="userPw2" placeholder="비밀번호를 입력해주세요" runat="server" CssClass="input" TextMode="Password"></asp:TextBox>
         <asp:Label ID="pwcheck" runat="server" Text="" style="margin-top:0.1vw; margin-left:-16vw;"></asp:Label>
+
+        <div style="width:10vw; display:inline-block; margin-left:30.2vw;">
+        <div class="tytle" style="margin-right:0; display:inline-block; font-size :1.4vw; margin-top:1vw;">관리자 인증 코드</div>
+        </div>
+        <asp:TextBox ID="verifyCode" placeholder="인증 코드를 입력해 주세요." style="margin-top:0.5vw;" runat="server" CssClass="input" TextMode="Password"></asp:TextBox>
 
 		<asp:Button ID="applybtn" runat="server" Text="확  인"  CssClass="btn" style="display:flex; justify-content:center; margin-top:2vw;" OnClick="Apply_Click"/>
          
