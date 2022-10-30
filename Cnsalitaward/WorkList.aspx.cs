@@ -16,7 +16,6 @@ namespace Cnsalitaward
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-
             {
 
                 Search.Attributes.Add("onkeypress", "if(event.keyCode == 13) { "
@@ -54,7 +53,7 @@ namespace Cnsalitaward
                 hcount = 0;
             }
             if (page < Managers.WorkManager.GetPagesCount(kind,hcount))
-                Response.Redirect("/WorkList.aspx?page=" + (page + 1));
+                Response.Redirect("/WorkList?page=" + (page + 1));
         }
         protected void LeftButton_Click(object sender, EventArgs e)
         {
@@ -69,15 +68,15 @@ namespace Cnsalitaward
             }
 
             if (page > 1)
-                Response.Redirect("/WorkList.aspx?page=" + (page - 1));
+                Response.Redirect("/WorkList?page=" + (page - 1));
         }
         protected void Searching(object sender, EventArgs e)
         {
             string kind = Request.QueryString["Kind"];
             if (TitleorContent.SelectedValue == "Title")
-                Response.Redirect("/WorkList.aspx?titleSearch=" + Search.Text);
+                Response.Redirect("/WorkList?titleSearch=" + Search.Text);
             else
-                Response.Redirect("/WorkList.aspx?contentsSearch=" + Search.Text);
+                Response.Redirect("/WorkList?contentsSearch=" + Search.Text);
         }
     }
     }
