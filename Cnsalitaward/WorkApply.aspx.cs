@@ -13,6 +13,10 @@ namespace Cnsalitaward
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //로그인 확인
+            if (Session["UserID"] == null)
+                Response.Redirect("/Login");
+
             string check = Cnsalitaward.Managers.Account.CheckAdmin(Session["UserID"].ToString());
 
             if (check == "admin")

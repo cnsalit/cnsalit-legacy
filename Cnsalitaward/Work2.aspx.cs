@@ -12,6 +12,10 @@ namespace Cnsalitaward
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //로그인 확인
+            if (Session["UserID"] == null)
+                Response.Redirect("/Login");
+
             string kind = "prose";
             string User = Session["UserID"].ToString();
             int id;
@@ -31,36 +35,20 @@ namespace Cnsalitaward
             {
                 Managers.WorkManager.Visitied(id, kind);
                 var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
-                if (Admin != "admin" && User == work.UserID)
+                if (Cnsalitaward.Managers.Account.CheckWorkAdministrator(id, User, false, true))
                 {
-                    downloadbtn.Style["visibility"] = "visible";
-                   // Modifybtn.Style["visibility"] = "visible";
-                   // Deletebtn.Style["visibility"] = "visible";
-
-                }
-                else if (Admin == "admin" && User != work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "visible";
                     Modifybtn.Style["visibility"] = "visible";
                     Deletebtn.Style["visibility"] = "visible";
-                    replytxt.Style["visibility"] = "visible";
-                    replybtn.Style["visibility"] = "visible";
-
+                    if (User != work.UserID)
+                    {
+                        replytxt.Style["visibility"] = "visible";
+                        replybtn.Style["visibility"] = "visible";
+                    }
                 }
-                else if (Admin == "admin" && User == work.UserID)
+                else
                 {
-                    downloadbtn.Style["visibility"] = "visible";
-                    Modifybtn.Style["visibility"] = "visible";
-                    Deletebtn.Style["visibility"] = "visible";
-                    replytxt.Style["visibility"] = "visible";
-                    replybtn.Style["visibility"] = "visible";
-
+                    Response.Redirect("/Error");
                 }
-                else if (Admin != "admin" && User != work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "visible";
-                }
-
             }
             else
             {

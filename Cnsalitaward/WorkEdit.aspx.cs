@@ -16,8 +16,13 @@ namespace Cnsalitaward
         string writter = "";
         string kind = "";
 
+        string title = "";
+        string brief = "";
+        string content = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            //로그인 확인
             if (Session["UserID"] == null)
                 Response.Redirect("/Login");
 
@@ -29,11 +34,6 @@ namespace Cnsalitaward
 
             bool isProse = false;
             bool isVerse = false;
-
-            if (Session["UserID"] == null)
-            {
-                Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('로그인을 해주세요.'); window.location.href = 'Login.aspx';", true);
-            }
 
             if (kind == "prose")
                 isProse = true;
@@ -58,17 +58,12 @@ namespace Cnsalitaward
         private void DisplayData()
         {
             //string sql = "SELECT UserID, Title, Brief, Content FROM verse WHERE Id=39 && UserID=\"abcd\"";
-            // string insertQuery = string.Format("INSERT INTO accounts_table (name, phone) VALUES ('{0}', '{1}');", textBoxName.Text, textBoxPhone.Text);
-            string sql = string.Format("SELECT UserID, Title, Brief, Content FROM {2} WHERE Id={0} && UserID='{1}'", workId, writter, kind);
+            string sql = string.Format("SELECT UserID, Title, Brief, Content FROM {0} WHERE Id={1}", kind, workId);
             MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
             con.Open();
 
             MySqlCommand cmd = new MySqlCommand(sql, con);
             MySqlDataReader reader = cmd.ExecuteReader();
-
-            string title = "";
-            string brief = "";
-            string content = "";
 
             if (reader.Read())
             {
@@ -77,14 +72,17 @@ namespace Cnsalitaward
                 brief = reader["Brief"].ToString();
                 content = reader["Content"].ToString();
             }
+            reader.Close();
 
             if (kind == "verse")
                 showingKind.InnerText = "운문";
             else if (kind == "prose")
                 showingKind.InnerText = "산문";
-            Titletxt.Text = title;
-            Brieftxt.Text = brief.Replace("<br/>", "\r\n");
-            Contenttxt.Text = content.Replace("<br/>", "\r\n");
+
+            serverTitle.InnerText = title;
+            serverBrief.InnerText = brief.Replace("<br/>", "\r\n");
+            serverContent.InnerText = content.Replace("<br/>", "\r\n");
+            
 
             con.Close();
         }
@@ -92,7 +90,6 @@ namespace Cnsalitaward
 
         protected int UploadFile(string kind)
         {
-
             string fileName = System.IO.Path.GetFileName(File.PostedFile.FileName);
             string path = Server.MapPath("~/Uploads/" + fileName);
             FileInfo file = new FileInfo(path);
@@ -133,13 +130,13 @@ namespace Cnsalitaward
 
         }
 
-
         protected void Upload_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(Titletxt.Text) && !String.IsNullOrEmpty(Contenttxt.Text) && !String.IsNullOrEmpty(Brieftxt.Text))
             {
-                Cnsalitaward.Managers.WorkManager.ModifyWork(workId, Titletxt.Text, Brieftxt.Text, Contenttxt.Text, kind);
+                // 데이터 사용자 입력 데이터로 업데이트 후, 업데이트 함수 호출
 
+                Cnsalitaward.Managers.WorkManager.ModifyWork(workId, Titletxt.Text, Brieftxt.Text, Contenttxt.Text, kind);
                 string href2go = "";
                 if (kind == "verse")
                     href2go = "/Work1?Id=";

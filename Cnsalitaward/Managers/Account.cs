@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using static Google.Protobuf.WellKnownTypes.Field.Types;
+using System.Web.UI.WebControls;
+using System.Drawing;
 
 namespace Cnsalitaward.Managers
 {
@@ -49,26 +52,31 @@ namespace Cnsalitaward.Managers
 
         public static string CheckAdmin(string UserID)
         {
-            MySqlConnection conn = null;
+            MySqlConnection con = null;
             // Connect to DB;
-            conn = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
-            conn.Open();
+            con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
+            con.Open();
 
-            string sql = "SELECT * FROM Adminaccount WHERE UserID='" + UserID + "';";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            // sql = string.Format("UPDATE {0} SET Title='{2}', Brief='{3}', Content='{4}' WHERE Id={1}", UserID);
+            //ex) SELECT EXISTS(SELECT * FROM verse WHERE Id=39 && UserID="abcd" LIMIT 1) AS SUCCESS
+            MySqlCommand cmd = new MySqlCommand(
+                string.Format("SELECT EXISTS(SELECT * FROM account WHERE UserID='{0}' && (NOT Admin IS NULL) LIMIT 1) AS SUCCESS", UserID), 
+                con
+            );
 
-            object obj = cmd.ExecuteScalar();
+            MySqlDataReader reader = cmd.ExecuteReader();
 
-        	if (obj != null)
-		    {
-                conn.Close();
+            bool isAdmin = false;
+            if (reader.Read())
+                isAdmin = reader["SUCCESS"].Equals(Convert.ToInt64(1));      //Admin일 시 true, 아니면  false
+
+            reader.Close();
+            con.Close();
+
+            if (isAdmin)
                 return "admin";
-			}
-			else
-			{
-                conn.Close();
+            else
                 return "User";
-			}
         }
         public static string CheckID(string UserID)
         {
@@ -156,7 +164,7 @@ namespace Cnsalitaward.Managers
             return context.Request.ServerVariables["REMOTE_ADDR"];
         }
 
-        public static bool CheckWorkAdministrator(int workId, string userId, bool prose=false, bool verse=false)
+        public static bool CheckWorkAdministrator(int workId, string userId, bool prose, bool verse)
         {
             // 관리자 예외
             if(CheckAdmin(userId) == "admin")
@@ -167,28 +175,29 @@ namespace Cnsalitaward.Managers
             // 일반 사용자, 본인 확인.
             else
             {
+                string kind = "";
+                string sql = "";
+
                 MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
                 con.Open();
 
-                //ex) SELECT EXISTS(SELECT * FROM verse WHERE Id=39 && UserID="abcd" LIMIT 1) AS SUCCESS
-                MySqlCommand cmd = new MySqlCommand("SELECT EXISTS(SELECT * FROM @kind WHERE Id=@workId && UserID=\"@userId\" LIMIT 1) AS SUCCESS", con);
-                cmd.Parameters.AddWithValue("@workId", workId);
-                cmd.Parameters.AddWithValue("@userId", userId);
-
                 //부문 입력
                 if (prose == true)
-                    cmd.Parameters.AddWithValue("@kind", "prose");
-
+                    kind =  "prose";
                 else if (verse == true)
-                    cmd.Parameters.AddWithValue("@kind", "verse");
-
-                else
+                    kind =  "verse";
+                else {
                     con.Close();
                     return false;
+                }
+
+                //ex) SELECT EXISTS(SELECT * FROM verse WHERE Id=39 && UserID="abcd" LIMIT 1) AS SUCCESS
+                sql = String.Format("SELECT EXISTS(SELECT * FROM {2} WHERE Id={0} && UserID=\"{1}\" LIMIT 1) AS SUCCESS", workId.ToString(), userId, kind);
+                MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 reader.Read();
-                bool isMine = reader["SUCCESS"].Equals(1);      //본인일 시 true, 아니면  false
+                bool isMine = reader["SUCCESS"].Equals(Convert.ToInt64(1));      //본인일 시 true, 아니면  false
                 reader.Close();
 
                 con.Close();

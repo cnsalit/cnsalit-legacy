@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace Cnsalitaward.Managers
@@ -116,18 +117,8 @@ namespace Cnsalitaward.Managers
 
                 // Connect to Database
                 // UPDATE verse SET Title = "운문일걸", Brief = "요약이다", Content = "본문이다" WHERE Id = 39;
-                sql = "UPDATE " + kind + " SET (Title=\"" + title + "\", Brief=\"" + brief + "\", Content=\"" + content + "t\", Work_At=\"" + DateTime.Now.ToString("yyyy-MM-dd") + "\") WHERE Id = " + workId;
+                sql = string.Format("UPDATE {0} SET Title='{2}', Brief='{3}', Content='{4}' WHERE Id={1}", kind, workId, title, brief, content);
                 MySqlCommand cmd = new MySqlCommand(sql, con);
-
-                // Add 
-                /*
-                cmd.Parameters.AddWithValue("@title", title);
-                cmd.Parameters.AddWithValue("@brief", brief);
-                cmd.Parameters.AddWithValue("@content", content.Replace("\r\n", "<br/>"));
-
-                cmd.Parameters.AddWithValue("@kind", kind);
-                cmd.Parameters.AddWithValue("@workAt", DateTime.Now);
-                cmd.Parameters.AddWithValue("@workId", workId);*/
 
                 return cmd.ExecuteNonQuery();
             }
