@@ -13,8 +13,8 @@
     <%  
 
         Random rand = new Random();
-        int randNum = rand.Next(1,94);
-        int randNum2 = rand.Next(1,39);
+        int randNum = rand.Next(1,25);
+        int randNum2 = rand.Next(1,9);
         Session["ID1"] = randNum;
         Session["ID2"] = randNum2;
         string TitleV = Cnsalitaward.Managers.CriticManager.randomTitleV((int)Session["ID1"]);

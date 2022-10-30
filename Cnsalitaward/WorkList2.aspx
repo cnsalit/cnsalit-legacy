@@ -98,7 +98,7 @@
                            Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
                            Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:4.453VW;font-color:#5A5A5A;padding:0.88VW ;height:2.8VW\";>" + nc + "</div>");
                            //Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                           Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                           Response.Write("<div onclick=\"location.href='Work2?Id=" + work.Id + "&Kind=prose'\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
 
                            Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
                            Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
@@ -124,7 +124,7 @@
                            Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
                            Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:4.453VW;font-color:#5A5A5A;padding:0.88VW ;height:2.8VW\";>" + nc + "</div>");
                            //Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                           Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                           Response.Write("<div onclick=\"location.href='Work2?Id=" + work.Id + "&Kind=prose'\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
 
                            Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
                            Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
@@ -176,7 +176,7 @@
                                Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
                                Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:4.453VW;font-color:#5A5A5A;padding:0.88VW ;height:2.8VW\";>" + (count2 - count) + "</div>");
                                //Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                               Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                               Response.Write("<div onclick=\"location.href='Work2?Id=" + work.Id + "&Kind=prose'\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
                                Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
 
                                Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
@@ -205,7 +205,7 @@
                                Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
                                Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:4.453VW;font-color:#5A5A5A;padding:0.88VW ;height:2.8VW\";>" + sum + "</div>");
                                //Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                               Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>"); /*location.href='Work2?Id=" + work.Id + "&Kind=prose'*/
+                               Response.Write("<div onclick=\"location.href='Work2?Id=" + work.Id + "&Kind=prose'\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>"); /*location.href='Work2?Id=" + work.Id + "&Kind=prose'*/
                                Response.Write("<div class=\"Noto\" style=\"text-align:center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
 
                                Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");

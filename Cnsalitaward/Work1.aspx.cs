@@ -32,7 +32,7 @@ namespace Cnsalitaward
                 var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
                 if (Admin != "admin" && User == work.UserID)
                 {
-                    downloadbtn.Style["visibility"] = "visible";
+                      downloadbtn.Style["visibility"] = "hidden";
                  //   Modifybtn.Style["visibility"] = "visible";
                  //   Deletebtn.Style["visibility"] = "visible";
 
@@ -40,7 +40,7 @@ namespace Cnsalitaward
                 }
                 else if (Admin == "admin" && User != work.UserID)
                 {
-                    downloadbtn.Style["visibility"] = "visible";
+                    downloadbtn.Style["visibility"] = "hidden";
                     Modifybtn.Style["visibility"] = "visible";
                     Deletebtn.Style["visibility"] = "visible";
                     replytxt.Style["visibility"] = "visible";
@@ -49,7 +49,7 @@ namespace Cnsalitaward
                 }
                 else if (Admin == "admin" && User == work.UserID)
                 {
-                    downloadbtn.Style["visibility"] = "visible";
+                    downloadbtn.Style["visibility"] = "hidden";
                     Modifybtn.Style["visibility"] = "visible";
                     Deletebtn.Style["visibility"] = "visible";
                     replytxt.Style["visibility"] = "visible";
@@ -58,7 +58,7 @@ namespace Cnsalitaward
                 }
                 else if(Admin !="admin" && User != work.UserID)
                 {
-                    downloadbtn.Style["visibility"] = "visible";
+                    downloadbtn.Style["visibility"] = "hidden";
                 }
 
             }
@@ -67,14 +67,14 @@ namespace Cnsalitaward
                 var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
                 if (Admin != "admin" && User == work.UserID)
                 {
-                    downloadbtn.Style["visibility"] = "visible";
-                //    Modifybtn.Style["visibility"] = "visible";
-                //    Deletebtn.Style["visibility"] = "visible";
+                    downloadbtn.Style["visibility"] = "hidden";
+                    //    Modifybtn.Style["visibility"] = "visible";
+                    //    Deletebtn.Style["visibility"] = "visible";
 
                 }
                 else if (Admin == "admin" && User != work.UserID)
                 {
-                    downloadbtn.Style["visibility"] = "visible";
+                    downloadbtn.Style["visibility"] = "hidden";
                     Modifybtn.Style["visibility"] = "visible";
                     Deletebtn.Style["visibility"] = "visible";
                     replytxt.Style["visibility"] = "visible";
@@ -83,7 +83,7 @@ namespace Cnsalitaward
                 }
                 else if (Admin == "admin" && User == work.UserID)
                 {
-                    downloadbtn.Style["visibility"] = "visible";
+                    downloadbtn.Style["visibility"] = "hidden";
                     Modifybtn.Style["visibility"] = "visible";
                     Deletebtn.Style["visibility"] = "visible";
                     replytxt.Style["visibility"] = "visible";
@@ -92,7 +92,7 @@ namespace Cnsalitaward
                 }
                 else if (Admin != "admin" && User != work.UserID)
                 {
-                    downloadbtn.Style["visibility"] = "visible";
+                    downloadbtn.Style["visibility"] = "hidden";
                 }
 
             }
