@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Cnsalitaward.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,133 +13,50 @@ namespace Cnsalitaward
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //로그인 확인
+            if (Session["UserID"] == null)
+                Response.Redirect("/Login");
+
             string kind = "verse";
             string User = Session["UserID"].ToString();
             int id;
             string Admin = Managers.Account.CheckAdmin(User);
-          
-                string number = Request.QueryString["Id"].ToString();
-                id = Convert.ToInt32(number);
+
+            string number = Request.QueryString["Id"].ToString();
+            id = Convert.ToInt32(number);
+
             Deletebtn.Style["visibility"] = "hidden";
             Modifybtn.Style["visibility"] = "hidden";
-            downloadbtn.Style["visibility"] = "hidden";
+            downloadbtn.Style["visibility"] = "visible";
             replytxt.Style["visibility"] = "hidden";
             replybtn.Style["visibility"] = "hidden";
 
-            if (!Page.IsPostBack)
-
+            var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
+            Managers.WorkManager.Visitied(id, kind);
+            if (Cnsalitaward.Managers.Account.CheckWorkAdministrator(id, User, false, true))
             {
-                Managers.WorkManager.Visitied(id, kind);
-                var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
-                if (Admin != "admin" && User == work.UserID)
+                Modifybtn.Style["visibility"] = "visible";
+                Deletebtn.Style["visibility"] = "visible";
+                if (User != work.UserID)
                 {
-                      downloadbtn.Style["visibility"] = "hidden";
-                 //   Modifybtn.Style["visibility"] = "visible";
-                 //   Deletebtn.Style["visibility"] = "visible";
-
-
-                }
-                else if (Admin == "admin" && User != work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "hidden";
-                    Modifybtn.Style["visibility"] = "visible";
-                    Deletebtn.Style["visibility"] = "visible";
                     replytxt.Style["visibility"] = "visible";
                     replybtn.Style["visibility"] = "visible";
-
                 }
-                else if (Admin == "admin" && User == work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "hidden";
-                    Modifybtn.Style["visibility"] = "visible";
-                    Deletebtn.Style["visibility"] = "visible";
-                    replytxt.Style["visibility"] = "visible";
-                    replybtn.Style["visibility"] = "visible";
-
-                }
-                else if(Admin !="admin" && User != work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "hidden";
-                }
-
+            } else
+            {
+                Response.Redirect("/Error");
             }
-			else
-			{
-                var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
-                if (Admin != "admin" && User == work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "hidden";
-                    //    Modifybtn.Style["visibility"] = "visible";
-                    //    Deletebtn.Style["visibility"] = "visible";
-
-                }
-                else if (Admin == "admin" && User != work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "hidden";
-                    Modifybtn.Style["visibility"] = "visible";
-                    Deletebtn.Style["visibility"] = "visible";
-                    replytxt.Style["visibility"] = "visible";
-                    replybtn.Style["visibility"] = "visible";
-
-                }
-                else if (Admin == "admin" && User == work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "hidden";
-                    Modifybtn.Style["visibility"] = "visible";
-                    Deletebtn.Style["visibility"] = "visible";
-                    replytxt.Style["visibility"] = "visible";
-                    replybtn.Style["visibility"] = "visible";
-
-                }
-                else if (Admin != "admin" && User != work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "hidden";
-                }
-
-            }
-       
-
         }
-   
 
-            protected void List_Click(object sender, EventArgs e)
-            {
-                string kind = Request.QueryString["Kind"];
-                 int id;
-                try
-                {
-                string number = Request.QueryString["Id"].ToString();
-                 id = Convert.ToInt32(number);
-                id = id / 10;
-                if (id == 0) id = 1;
-                } 
-                catch (Exception a)
-                {
-                    id = 1;
-                }
-                if (kind == "verse") 
-                    Response.Redirect("/WorkList.aspx?page=" + id);
-                else
-                {  
-                    Response.Redirect("/WorkList2.aspx?page=" + id);
-                }
-            }
 
-            protected void Modify_Click(object sender, EventArgs e)
-            {
-                string id = Request.QueryString["Id"];
-                Response.Redirect("/WorkApply.aspx?Id=" + id + "&Kind=verse");
-            }
-
-            protected void Delete_Click(object sender, EventArgs e)
-            {
-                string kind = "verse";
-            string number = Request.QueryString["Id"].ToString();
-;                int id = Convert.ToInt32(number);
-                Cnsalitaward.Managers.WorkManager.DeleteQuestion(id, kind);
+        protected void List_Click(object sender, EventArgs e)
+        {
+            string kind = Request.QueryString["Kind"];
+            int id;
             try
             {
-               
+                string number = Request.QueryString["Id"].ToString();
+                id = Convert.ToInt32(number);
                 id = id / 10;
                 if (id == 0) id = 1;
             }
@@ -146,6 +64,34 @@ namespace Cnsalitaward
             {
                 id = 1;
             }
+            if (kind == "verse")
+                Response.Redirect("/WorkList.aspx?page=" + id);
+            else
+            {
+                Response.Redirect("/WorkList2.aspx?page=" + id);
+            }
+        }
+
+        protected void Modify_Click(object sender, EventArgs e)
+        {
+            string id = Request.QueryString["Id"];
+            Response.Redirect("/WorkEdit?Id=" + id + "&Kind=verse");
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            string kind = "verse";
+            int id = Convert.ToInt32(Request.QueryString["Id"].ToString());
+            int page = id / 10 + 1;
+
+            // 글 관리 권한이 없을시 실행(참고: CheckWorkAdminstrator는 Non-greedy=탐욕스럽지않으며 post가 존재하지 않으면 false를 반환함.)
+            if (!Cnsalitaward.Managers.Account.CheckWorkAdministrator(id, Session["UserID"].ToString(), false, true))
+            {
+                Response.Redirect("/Error");
+            }
+
+            Cnsalitaward.Managers.WorkManager.DeleteQuestion(id, kind);
+
             if (kind == "verse") Response.Redirect("/WorkList.aspx?page=" + id);
             if (kind == "prose") Response.Redirect("/WorkList2.aspx?page=" + id);
         }
@@ -162,15 +108,15 @@ namespace Cnsalitaward
             string check;
             try
             {
-               check = Request.Cookies[rmduser].Value;
+                check = Request.Cookies[rmduser].Value;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 check = "no";
             }
             if (check == "no")
             {
-               
+
                 Managers.WorkManager.Liked(id, kind);
 
                 HttpCookie cookie = new HttpCookie(rmduser);
@@ -181,14 +127,14 @@ namespace Cnsalitaward
             else
             {
                 Response.Write("<script>alert('이미 추천하신 글입니다.');</script>");
-                
+
             }
 
-            
+
         }
 
-       protected void Download_Click(object sender, EventArgs e)
-       {
+        protected void Download_Click(object sender, EventArgs e)
+        {
             string kind = "verse";
             string User = Session["UserID"].ToString();
             string number = Request.QueryString["Id"].ToString();

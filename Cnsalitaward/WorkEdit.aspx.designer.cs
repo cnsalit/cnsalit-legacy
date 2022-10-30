@@ -11,115 +11,97 @@ namespace Cnsalitaward
 {
 
 
-    public partial class AdminApply
+    public partial class WorkEdit
     {
 
         /// <summary>
-        /// form1 컨트롤입니다.
+        /// showingKind 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl showingKind;
 
         /// <summary>
-        /// checkPenname 컨트롤입니다.
+        /// serverTitle 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button checkPenname;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl serverTitle;
 
         /// <summary>
-        /// penName 컨트롤입니다.
+        /// serverContent 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox penName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl serverContent;
 
         /// <summary>
-        /// onlyPN 컨트롤입니다.
+        /// serverBrief 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label onlyPN;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl serverBrief;
 
         /// <summary>
-        /// checkID 컨트롤입니다.
+        /// Titletxt 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button checkID;
+        protected global::System.Web.UI.WebControls.TextBox Titletxt;
 
         /// <summary>
-        /// userId 컨트롤입니다.
+        /// Brieftxt 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userId;
+        protected global::System.Web.UI.WebControls.TextBox Brieftxt;
 
         /// <summary>
-        /// onlyID 컨트롤입니다.
+        /// Contenttxt 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label onlyID;
+        protected global::System.Web.UI.WebControls.TextBox Contenttxt;
 
         /// <summary>
-        /// userPw 컨트롤입니다.
+        /// File 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userPw;
+        protected global::System.Web.UI.WebControls.FileUpload File;
 
         /// <summary>
-        /// userPw2 컨트롤입니다.
+        /// Savebtn 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userPw2;
+        protected global::System.Web.UI.WebControls.Button Savebtn;
 
         /// <summary>
-        /// pwcheck 컨트롤입니다.
+        /// Uploadbtn 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label pwcheck;
-
-        /// <summary>
-        /// verifyCode 컨트롤입니다.
-        /// </summary>
-        /// <remarks>
-        /// 자동 생성 필드입니다.
-        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox verifyCode;
-
-        /// <summary>
-        /// applybtn 컨트롤입니다.
-        /// </summary>
-        /// <remarks>
-        /// 자동 생성 필드입니다.
-        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button applybtn;
+        protected global::System.Web.UI.WebControls.Button Uploadbtn;
     }
 }

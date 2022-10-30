@@ -51,7 +51,7 @@ namespace Cnsalitaward
                 hcount = 0;
             }
             if (page < Managers.WorkManager.GetPagesCount(kind,hcount))
-                Response.Redirect("/WorkList2.aspx?page=" + (page + 1));
+                Response.Redirect("/WorkList2?page=" + (page + 1));
         }
         protected void LeftButton_Click(object sender, EventArgs e)
         {
@@ -66,15 +66,15 @@ namespace Cnsalitaward
             }
 
             if (page > 1)
-                Response.Redirect("/WorkList2.aspx?page=" + (page - 1));
+                Response.Redirect("/WorkList2?page=" + (page - 1));
         }
         protected void Searching(object sender, EventArgs e)
         {
             string kind = Request.QueryString["Kind"];
             if (TitleorContent.SelectedValue == "Title")
-                Response.Redirect("/WorkList2.aspx?titleSearch=" + Search.Text);
+                Response.Redirect("/WorkList2?titleSearch=" + Search.Text);
             else
-                Response.Redirect("/WorkList2.aspx?contentsSearch=" + Search.Text);
+                Response.Redirect("/WorkList2?contentsSearch=" + Search.Text);
         }
     }
 }

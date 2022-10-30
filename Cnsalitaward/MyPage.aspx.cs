@@ -10,22 +10,14 @@ using System.Web.UI.WebControls;
 
 namespace Cnsalitaward
 {
-    public partial class WorkList : System.Web.UI.Page
+    public partial class MyPage : System.Web.UI.Page
     {
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-
-                Search.Attributes.Add("onkeypress", "if(event.keyCode == 13) { "
-
-                + Page.ClientScript.GetPostBackEventReference(Searchbtn, "") + "; return false;}");
-
-            }
-
-
-
+            //로그인 확인
+            if (Session["UserID"] == null)
+                Response.Redirect("/Login");
         }
 
 
@@ -69,14 +61,6 @@ namespace Cnsalitaward
 
             if (page > 1)
                 Response.Redirect("/WorkList?page=" + (page - 1));
-        }
-        protected void Searching(object sender, EventArgs e)
-        {
-            string kind = Request.QueryString["Kind"];
-            if (TitleorContent.SelectedValue == "Title")
-                Response.Redirect("/WorkList?titleSearch=" + Search.Text);
-            else
-                Response.Redirect("/WorkList?contentsSearch=" + Search.Text);
         }
     }
     }

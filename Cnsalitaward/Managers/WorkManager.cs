@@ -1,10 +1,15 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Cnsalitaward.Models;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Utilities.Collections;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
+using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace Cnsalitaward.Managers
 {
@@ -22,19 +27,23 @@ namespace Cnsalitaward.Managers
                 string sql = "SELECT * FROM " + kind + " WHERE Id=" + Id + ";";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 var rdr = cmd.ExecuteReader();
-                rdr.Read();
-                Models.Work work = new Models.Work
+                Models.Work work = null;
+
+                if (rdr.Read())
                 {
-                    Id = (int)rdr["Id"],
-                    UserID = (string)rdr["UserID"],
-                    Author = (string)rdr["Penname"],
-                    Brief = (string)rdr["Brief"],
-                    Title = (string)rdr["Title"],
-                    Content = (string)rdr["Content"],
-                    Like = (int)rdr["Likes"],
-                    View = (int)rdr["Views"],
-                    Date = (DateTime)rdr["Work_At"]
-                };
+                    work = new Models.Work
+                    {
+                        Id = (int)rdr["Id"],
+                        UserID = (string)rdr["UserID"],
+                        Author = (string)rdr["Penname"],
+                        Brief = (string)rdr["Brief"],
+                        Title = (string)rdr["Title"],
+                        Content = (string)rdr["Content"],
+                        Like = (int)rdr["Likes"],
+                        View = (int)rdr["Views"],
+                        Date = (DateTime)rdr["Work_At"]
+                    };
+                }
                 rdr.Close();
                 return work;
             }
@@ -98,37 +107,35 @@ namespace Cnsalitaward.Managers
                 conn.Close();
             }
         }
-        //작품 수정
-        public static int ModifyWork(Models.Work work, string kind)
-        {
-            MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
-            MySqlCommand cmd = new MySqlCommand("update " + kind + " Set  Title = @Title, Brief=@Brief,Content = @Content where Id=" + work.Id, con);
 
+        //작품 수정
+        public static int ModifyWork(int workId, string title, string brief, string content, string kind)
+        {
+            MySqlConnection con = null;
+            string sql = "";
             try
             {
+                // Connect to DB;
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
                 con.Open();
-                int result = 0;
 
+                // Connect to Database
+                // UPDATE verse SET Title = "운문일걸", Brief = "요약이다", Content = "본문이다" WHERE Id = 39;
+                sql = string.Format("UPDATE {0} SET Title='{2}', Brief='{3}', Content='{4}' WHERE Id={1}", kind, workId, title, brief, content);
+                MySqlCommand cmd = new MySqlCommand(sql, con);
 
-                cmd.Parameters.AddWithValue("@Title", work.Title);
-                cmd.Parameters.AddWithValue("@Brief", work.Brief);
-                cmd.Parameters.AddWithValue("@Content", work.Content.Replace("\r\n", "<br/>"));
-                result = cmd.ExecuteNonQuery();
-
-
-                return result;
-
+                return cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                // TODO: 예외 처리
+                throw new Exception(sql);
+                //throw new Exception(e.Message);
             }
             finally
             {
                 con.Close();
             }
-
-
         }
         public static int ModifyFile(Models.Work work, string kind)
         {
@@ -522,6 +529,39 @@ namespace Cnsalitaward.Managers
                 
                 conn.Close();
             }
+        }
+
+        public static List<Models.Work> GetWorkByUser(string userID, string kind)
+        {
+            List<Models.Work> workList = new List<Models.Work>();
+            string sql = "";
+            MySqlCommand cmd = null;
+
+            // Connect to DB;
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
+            con.Open();
+
+            sql = String.Format("SELECT Id, Title, Penname, Views, Likes, Work_At FROM {1} WHERE USerID=\"{0}\"", userID, kind);
+            cmd = new MySqlCommand(sql, con);
+
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                workList.Add(new Models.Work
+                {
+                    Id = (int)reader["Id"],
+                    Title = (string)reader["Title"],
+                    Author = (string)reader["Penname"],
+                    Like = (int)reader["Likes"],
+                    View = (int)reader["Views"],
+                    Date = (DateTime)reader["Work_At"]
+                });
+            }
+            reader.Close();
+            con.Close();
+
+            return workList;
         }
 
         /// Get Works by Searching

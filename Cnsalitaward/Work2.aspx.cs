@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Cnsalitaward.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,10 @@ namespace Cnsalitaward
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //로그인 확인
+            if (Session["UserID"] == null)
+                Response.Redirect("/Login");
+
             string kind = "prose";
             string User = Session["UserID"].ToString();
             int id;
@@ -31,36 +36,20 @@ namespace Cnsalitaward
             {
                 Managers.WorkManager.Visitied(id, kind);
                 var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
-                if (Admin != "admin" && User == work.UserID)
+                if (Cnsalitaward.Managers.Account.CheckWorkAdministrator(id, User, false, true))
                 {
-                    downloadbtn.Style["visibility"] = "visible";
-                   // Modifybtn.Style["visibility"] = "visible";
-                   // Deletebtn.Style["visibility"] = "visible";
-
-                }
-                else if (Admin == "admin" && User != work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "visible";
                     Modifybtn.Style["visibility"] = "visible";
                     Deletebtn.Style["visibility"] = "visible";
-                    replytxt.Style["visibility"] = "visible";
-                    replybtn.Style["visibility"] = "visible";
-
+                    if (User != work.UserID)
+                    {
+                        replytxt.Style["visibility"] = "visible";
+                        replybtn.Style["visibility"] = "visible";
+                    }
                 }
-                else if (Admin == "admin" && User == work.UserID)
+                else
                 {
-                    downloadbtn.Style["visibility"] = "visible";
-                    Modifybtn.Style["visibility"] = "visible";
-                    Deletebtn.Style["visibility"] = "visible";
-                    replytxt.Style["visibility"] = "visible";
-                    replybtn.Style["visibility"] = "visible";
-
+                    Response.Redirect("/Error");
                 }
-                else if (Admin != "admin" && User != work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "visible";
-                }
-
             }
             else
             {
@@ -124,25 +113,23 @@ namespace Cnsalitaward
         protected void Modify_Click(object sender, EventArgs e)
         {
             string id = Request.QueryString["Id"];
-            Response.Redirect("/WorkApply.aspx?Id=" + id + "&Kind=prose");
+            Response.Redirect("/WorkEdit.aspx?Id=" + id + "&Kind=prose");
         }
 
         protected void Delete_Click(object sender, EventArgs e)
         {
             string kind = "prose";
-            string number = Request.QueryString["Id"].ToString();
-            ; int id = Convert.ToInt32(number);
-            Cnsalitaward.Managers.WorkManager.DeleteQuestion(id, kind);
-            try
-            {
+            int id = Convert.ToInt32(Request.QueryString["Id"].ToString());
+            int page = id / 10 + 1;
 
-                id = id / 10;
-                if (id == 0) id = 1;
-            }
-            catch (Exception a)
+            // 글 관리 권한이 없을시 실행(참고: CheckWorkAdminstrator는 Non-greedy=탐욕스럽지않으며 post가 존재하지 않으면 false를 반환함.)
+            if (!Cnsalitaward.Managers.Account.CheckWorkAdministrator(id, Session["UserID"].ToString(), true, false))
             {
-                id = 1;
+                Response.Redirect("/Error");
             }
+
+            Cnsalitaward.Managers.WorkManager.DeleteQuestion(id, kind);
+
             if (kind == "verse") Response.Redirect("/WorkList.aspx?page=" + id);
             if (kind == "prose") Response.Redirect("/WorkList2.aspx?page=" + id);
         }
