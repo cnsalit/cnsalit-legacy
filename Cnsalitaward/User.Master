@@ -40,9 +40,8 @@
         </div>
 
         <div style="float: right; height: 4vw; margin-right: 2vw; display: inline-block; font-size: 1vw; margin-top: -2.9vw;">
-            <a href="/MyPage">
-                <div style="display: inline-block; font-size: 1vw; "><%=Session["Penname"]%>님, 환영합니다.</div>
-            </a>
+            <a href="/MyPage"><span style="display: inline-block; font-size: 1vw; ">MyPage</span></a>
+            <span style="display: inline-block; font-size: 1vw; "><%=Session["Penname"]%>님, 환영합니다.</span>
             <asp:Button ID="btnNull" runat="server" Style="display: none" />
             <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="/assets/img/log-out.png" Style="float: right; margin-top: -0.2vw; margin-left: 1vw; width: 1.8vw; height: 1.8VW; cursor: pointer;" OnClick="Logout_Click" />
         </div>
