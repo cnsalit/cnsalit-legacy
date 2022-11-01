@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.Ajax.Utilities;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,13 +14,19 @@ namespace Cnsalitaward
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //DisplayData1();
+            //로그인 확인
+            if (Session["UserID"] == null)
+                Response.Redirect("/Login");
+
+            if (Request.QueryString["Id"] != null)
+                DisplayData1();
+
             MySqlConnection conn = null;
             conn = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
             conn.Open();
             if(!Page.IsPostBack)
             {
-                DisplayData1();
+                // DisplayData1();
                 String getState = "Select Title as TextField, Id as ValueField from verse  union Select Title as TextField, Id as ValueField from prose;";
 
                 DataTable dt = new DataTable();
@@ -49,7 +56,7 @@ namespace Cnsalitaward
                 int id = Convert.ToInt32(number);
                 var work = Managers.CriticManager.GetCritic(id);
 
-                if (Admin == "admin" || User == work.UserID)
+                if (Admin != null || User == work.UserID)
                 {
 
                     Titletxt.Text = work.Title;
