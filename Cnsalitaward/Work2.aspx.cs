@@ -43,6 +43,11 @@ namespace Cnsalitaward
                     replybtn.Style["visibility"] = "visible";
                 }
             }
+            else
+            {
+                replytxt.Style["visibility"] = "visible";
+                replybtn.Style["visibility"] = "visible";
+            }
 
             // 댓글 개수 보이기
             int replyLength = 0;

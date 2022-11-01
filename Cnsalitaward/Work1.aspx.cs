@@ -28,7 +28,7 @@ namespace Cnsalitaward
             Deletebtn.Style["visibility"] = "hidden";
             Modifybtn.Style["visibility"] = "hidden";
             downloadbtn.Style["visibility"] = "visible";
-            replytxt.Style["visibility"] = "hidden";
+            replytxt.Style["visibility"] = "hidde";
             replybtn.Style["visibility"] = "hidden";
 
             var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
@@ -42,6 +42,10 @@ namespace Cnsalitaward
                     replytxt.Style["visibility"] = "visible";
                     replybtn.Style["visibility"] = "visible";
                 }
+            }else
+            {
+                replytxt.Style["visibility"] = "visible";
+                replybtn.Style["visibility"] = "visible";
             }
 
             // 댓글 개수 보이기
