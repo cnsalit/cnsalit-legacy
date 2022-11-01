@@ -33,15 +33,12 @@ namespace Cnsalitaward
 
             var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
             Managers.WorkManager.Visitied(id, kind);
-            if (Cnsalitaward.Managers.Account.CheckAdmin(User) == "admin")
+            Modifybtn.Style["visibility"] = "visible";
+            Deletebtn.Style["visibility"] = "visible";
+            if (User != work.UserID)
             {
-                Modifybtn.Style["visibility"] = "visible";
-                Deletebtn.Style["visibility"] = "visible";
-                if (User != work.UserID)
-                {
-                    replytxt.Style["visibility"] = "visible";
-                    replybtn.Style["visibility"] = "visible";
-                }
+                replytxt.Style["visibility"] = "visible";
+                replybtn.Style["visibility"] = "visible";
             }
 
             // 댓글 개수 보이기

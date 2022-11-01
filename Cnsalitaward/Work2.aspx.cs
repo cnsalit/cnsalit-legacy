@@ -32,19 +32,15 @@ namespace Cnsalitaward
             replybtn.Style["visibility"] = "hidden";
 
             if (!Page.IsPostBack)
-
             {
                 Managers.WorkManager.Visitied(id, kind);
                 var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
-                if (Cnsalitaward.Managers.Account.CheckAdmin(User) == "admin")
+                Modifybtn.Style["visibility"] = "visible";
+                Deletebtn.Style["visibility"] = "visible";
+                if (User != work.UserID)
                 {
-                    Modifybtn.Style["visibility"] = "visible";
-                    Deletebtn.Style["visibility"] = "visible";
-                    if (User != work.UserID)
-                    {
-                        replytxt.Style["visibility"] = "visible";
-                        replybtn.Style["visibility"] = "visible";
-                    }
+                    replytxt.Style["visibility"] = "visible";
+                    replybtn.Style["visibility"] = "visible";
                 }
             }
             else
