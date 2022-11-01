@@ -7,14 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
-<body style="background: url('/assets/img/background.png'); background-size:cover; display:flex; justify-content:center; align-content:center; overflow:hidden; user-select:none;">
+<body style="background: url('/assets/img/background6.png'); background-size:cover; display:flex; justify-content:center; align-content:center; overflow:hidden; user-select:none;">
     
 <form id="form1" runat="server">
     <%  
 
         Random rand = new Random();
-        int randNum = rand.Next(1,25);
-        int randNum2 = rand.Next(1,9);
+        int randNum = rand.Next(1,87);
+        int randNum2 = rand.Next(1,24);
         Session["ID1"] = randNum;
         Session["ID2"] = randNum2;
         string TitleV = Cnsalitaward.Managers.CriticManager.randomTitleV((int)Session["ID1"]);
