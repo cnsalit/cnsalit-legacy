@@ -65,7 +65,7 @@ namespace Cnsalitaward.Managers
 
                 int result = 0;
 
-                string sql = "INSERT INTO critic(Work,Title,Content,UserID,Penname,Date,Likes,Views) VALUES (?, ?, ?,?, ?,?, ?,?)";
+                string sql = "INSERT INTO critic(Work,Title,Content,UserID,Penname,Date,Work_at,Likes,Views) VALUES (?, ?, ?,?, ?, ?,?, ?,?)";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                 // Add
@@ -74,7 +74,9 @@ namespace Cnsalitaward.Managers
                 cmd.Parameters.Add("Content", MySqlDbType.VarChar).Value =  work.Content.Replace("\r\n", "<br/>");
                 cmd.Parameters.Add("UserID", MySqlDbType.VarChar).Value = work.UserID;
                 cmd.Parameters.Add("Penname", MySqlDbType.VarChar).Value = work.Author;
+
                 cmd.Parameters.Add("Date", MySqlDbType.DateTime).Value = DateTime.Now.ToString("yyyy-MM-dd");
+                cmd.Parameters.Add("Work_at", MySqlDbType.DateTime).Value = DateTime.Now.ToString("yyyy-MM-dd");
                 cmd.Parameters.Add("Likes", MySqlDbType.Int32).Value = work.Like;
                 cmd.Parameters.Add("Views", MySqlDbType.Int32).Value = work.View;
 
