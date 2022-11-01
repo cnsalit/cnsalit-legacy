@@ -25,7 +25,7 @@
                 <!--    <div style="font-size:1vw; color:red;" class="Noto"><span class="NOtoB">2차 운영기간에 작품 감상이 가능합니다.</span><br>기다려주세요.</div> -->
 
             </div>
-
+             
             <div style="margin-left: 14.7VW; margin-top: 4.2VW; width: 100%;">
                 <div style="float: left; font-size: 0.8333333333333334VW; background-color: #5A5A5A; color: white; border: solid 0.05VW; width: 35.3125VW; height: 1.9270833333333335VW; text-align: center; padding-top: 0.5208333333333333VW">운문</div>
                 <div onclick="location.href='WorkList2'" style="cursor: pointer; font-size: 0.8333333333333334VW; float: left; color: #5A5A5A; border: solid 0.05VW; width: 35.3125VW; height: 1.875VW; text-align: center; padding-top: 0.5208333333333333VW">산문</div>
