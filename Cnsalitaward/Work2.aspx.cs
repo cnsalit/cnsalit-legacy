@@ -20,21 +20,21 @@ namespace Cnsalitaward
             string kind = "prose";
             string User = Session["UserID"].ToString();
             int id;
-
             string Admin = Managers.Account.CheckAdmin(User);
-            
+
             string number = Request.QueryString["Id"].ToString();
             id = Convert.ToInt32(number);
-            downloadbtn.Style["visibility"] = "hidden";
+
             Deletebtn.Style["visibility"] = "hidden";
             Modifybtn.Style["visibility"] = "hidden";
+            downloadbtn.Style["visibility"] = "visible";
             replytxt.Style["visibility"] = "hidden";
             replybtn.Style["visibility"] = "hidden";
 
-            if (!Page.IsPostBack)
+            var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
+            Managers.WorkManager.Visitied(id, kind);
+            if (Cnsalitaward.Managers.Account.CheckAdmin(User) == "admin")
             {
-                Managers.WorkManager.Visitied(id, kind);
-                var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
                 Modifybtn.Style["visibility"] = "visible";
                 Deletebtn.Style["visibility"] = "visible";
                 if (User != work.UserID)
@@ -43,39 +43,6 @@ namespace Cnsalitaward
                     replybtn.Style["visibility"] = "visible";
                 }
             }
-            else
-            {
-                var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
-                if (Admin != "admin" && User == work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "visible";
-                    //Modifybtn.Style["visibility"] = "visible";
-                    //Deletebtn.Style["visibility"] = "visible";
-                }
-                else if (Admin == "admin" && User != work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "visible";
-                    Modifybtn.Style["visibility"] = "visible";
-                    Deletebtn.Style["visibility"] = "visible";
-                    replytxt.Style["visibility"] = "visible";
-                    replybtn.Style["visibility"] = "visible";
-
-                }
-                else if (Admin == "admin" && User == work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "visible";
-                    Modifybtn.Style["visibility"] = "visible";
-                    Deletebtn.Style["visibility"] = "visible";
-                    replytxt.Style["visibility"] = "visible";
-                    replybtn.Style["visibility"] = "visible";
-
-                }
-                else if (Admin != "admin" && User != work.UserID)
-                {
-                    downloadbtn.Style["visibility"] = "visible";
-                }
-
-            }
 
             // 댓글 개수 보이기
             int replyLength = 0;
@@ -83,7 +50,6 @@ namespace Cnsalitaward
             foreach (var reply in replyList)
                 replyLength++;
             replyNum.InnerText = replyLength.ToString();
-
         }
 
 
@@ -143,11 +109,12 @@ namespace Cnsalitaward
 
             string rmduser = Session["UserID"].ToString() + kind + id;
 
-            string check;
+            string check = "no";
             try
             {
-                check = Request.Cookies[rmduser].Value;
-            }
+                if (Request.Cookies[rmduser] != null)
+                    check = Request.Cookies[rmduser].Value;
+                }
             catch (Exception ex)
             {
                 check = "no";

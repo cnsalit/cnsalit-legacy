@@ -33,12 +33,15 @@ namespace Cnsalitaward
 
             var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
             Managers.WorkManager.Visitied(id, kind);
-            Modifybtn.Style["visibility"] = "visible";
-            Deletebtn.Style["visibility"] = "visible";
-            if (User != work.UserID)
+            if (Cnsalitaward.Managers.Account.CheckAdmin(User) == "admin")
             {
-                replytxt.Style["visibility"] = "visible";
-                replybtn.Style["visibility"] = "visible";
+                Modifybtn.Style["visibility"] = "visible";
+                Deletebtn.Style["visibility"] = "visible";
+                if (User != work.UserID)
+                {
+                    replytxt.Style["visibility"] = "visible";
+                    replybtn.Style["visibility"] = "visible";
+                }
             }
 
             // 댓글 개수 보이기
@@ -106,10 +109,11 @@ namespace Cnsalitaward
             id = Convert.ToInt32(number);
             string rmduser = Session["UserID"].ToString() + kind + id;
             string strRemoteIp = (string)HttpContext.Current.Request.UserHostAddress;
-            string check;
+            string check = "no";
             try
             {
-                check = Request.Cookies[rmduser].Value;
+                if (Request.Cookies[rmduser] != null)
+                    check = Request.Cookies[rmduser].Value;
             }
             catch (Exception ex)
             {
