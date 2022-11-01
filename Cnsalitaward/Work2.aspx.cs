@@ -101,7 +101,7 @@ namespace Cnsalitaward
 
         protected void Like_Click(object sender, EventArgs e)
         {
-            string kind = Request.QueryString["Kind"];
+            string kind = "prose";
             int id;
 
             string number = Request.QueryString["Id"].ToString();

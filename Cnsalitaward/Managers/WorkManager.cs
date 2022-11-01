@@ -631,7 +631,7 @@ namespace Cnsalitaward.Managers
             conn = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
             conn.Open();
             int id = 0;
-            MySqlCommand cmd = new MySqlCommand("Update " + kind + " Set Likes = Likes + 1 where Id=" + Id, conn);
+            MySqlCommand cmd = new MySqlCommand("UPDATE " + kind + " SET Likes = Likes + 1 WHERE Id=" + Id, conn);
             cmd.CommandType = CommandType.Text;
             cmd.ExecuteNonQuery();
             
