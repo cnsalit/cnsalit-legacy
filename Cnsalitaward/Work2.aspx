@@ -83,7 +83,7 @@
               Response.Write("<div class=\"rname\" style=\"float:left\">"+reply.Author+"</div>");
               Response.Write("<div style=\"border:solid gray 0.05VW;background-color:gray;width:0.05VW;height: 1.6VW;float:left;opacity:0.7;margin-top: 0.4vw;margin-left: 1vw;margin-right:0.5vw\"></div>");
               Response.Write("<div style=\"margin-top:0.3vw;float:left;\"class=\"rdate\">"+reply.Date.ToString("yy.MM.dd")+"</div>");
-              if (reply.UserID == User || Admin == "admin") Response.Write("<a onclick=\"pop('DeleteReply.aspx?Id=" + reply.Id + "&Kind=prose&Work=" + work.Id + "','','width=418,height=125;location=no,resizable=no')\" style=\"margin-left:1vw;cursor:pointer;color:red;\">X</a>");
+              if (reply.UserID == User || Admin == "admin") Response.Write("<a onclick=\"pop('DeleteReply.aspx?Id=" + reply.Id + "&Kind=prose&Work=" + work.Id + "','','width=418,height=125;location=no,resizable=no')\" style=\"margin-left:1vw;cursor:pointer;color:red;\">댓글 삭제</a>");
               else Response.Write("<div style=\"color:white;\">~</div>");
               Response.Write("<div class=\"rcontent\" style=\"margin-top:1vw\">"+reply.Content+"</div>");
               Response.Write("<div class=\"replyline\" style = \"margin-top:1VW;\"></div>");
