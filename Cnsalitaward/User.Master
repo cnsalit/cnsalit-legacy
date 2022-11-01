@@ -56,9 +56,8 @@
             <a href="Honor?menu=Honor" class="nav_menu" style="margin-right: 2.5vw">명예의 전당</a>
             <a href="WorkApply" class="nav_menu" style="margin-right: 2.5vw">작품응모 </a>
             <a href="WorkList" class="nav_menu" style="margin-right: 2.5vw">작품 전시관</a><!--href="WorkList?page=1"-->
-            <a href="#" onclick="alert('현재는 비평할 수 없습니다.')" class="nav_menu" style="margin-right: 2.5vw; display: none;">나도 비평가</a>
-            <!--href="CriticList"-->
-            <a href="#" onclick="alert('현재는 투표할 수 없습니다.')" class="nav_menu" style="margin-right: 2.5vw; display: none">내가 뽑은 최고의 작품</a><!--href="Vote"-->
+            <a href="criticList" class="nav_menu" style="margin-right: 2.5vw;">나도 비평가</a> <!--href="CriticList"-->
+            <a href="/Vote" class="nav_menu" style="margin-right: 2.5vw;">내가 뽑은 최고의 작품</a><!--href="Vote"-->
             <a href="Member" class="nav_menu">만든이</a>
             <div class="nav-underline"></div>
         </span>
