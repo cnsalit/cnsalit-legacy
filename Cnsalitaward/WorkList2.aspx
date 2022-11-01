@@ -96,21 +96,16 @@
                 foreach (var work in workList)
                 {
                     //writeWork
-                    if (isAdmin)
-                        Response.Write("<a href='/Work2?Id=" + work.Id.ToString() + "'>");
+                    Response.Write("<a href='/Work2?Id=" + work.Id.ToString() + "'>");
                     Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
-                    if (isAdmin)
-                        Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                    else
-                        Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                    Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
 
                     Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
                     Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
                     Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
                     Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
                     Response.Write("</div>");
-                    if (isAdmin)
-                        Response.Write("</a>");
+                    Response.Write("</a>");
                     ++nc;
                 }
             }
@@ -127,21 +122,16 @@
                     foreach (var work in hotList)
                     {
                         //writeWork
-                        if (isAdmin)
-                            Response.Write("<a href='/Work2?Id=" + work.Id.ToString() + "'>");
+                        Response.Write("<a href='/Work2?Id=" + work.Id.ToString() + "'>");
                         Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
-                        if (isAdmin)
-                            Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                        else
-                            Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                        Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
 
                         Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
                         Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
                         Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
                         Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
                         Response.Write("</div>");
-                        if (isAdmin)
-                            Response.Write("</a>");
+                        Response.Write("</a>");
                         ++hc;
                     }
                     Session["hc"] = hc;
@@ -152,21 +142,16 @@
                     foreach (var work in workList)
                     {
                         //writeWork
-                        if (isAdmin)
-                            Response.Write("<a href='/Work2?Id=" + work.Id.ToString() + "'>");
+                        Response.Write("<a href='/Work2?Id=" + work.Id.ToString() + "'>");
                         Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
-                        if (isAdmin)
-                            Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                        else
-                            Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                        Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
 
                         Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
                         Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
                         Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
                         Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
                         Response.Write("</div>");
-                        if (isAdmin)
-                            Response.Write("</a>");
+                        Response.Write("</a>");
                         ++count;
                         ++cf;
                     }
@@ -181,21 +166,16 @@
                     foreach (var work in workList)
                     {
                         //writeWork
-                        if (isAdmin)
-                            Response.Write("<a href='/Work2?Id=" + work.Id.ToString() + "'>");
+                        Response.Write("<a href='/Work2?Id=" + work.Id.ToString() + "'>");
                         Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
-                        if (isAdmin)
-                            Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                        else
-                            Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                        Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
 
                         Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
                         Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
                         Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
                         Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
                         Response.Write("</div>");
-                        if (isAdmin)
-                            Response.Write("</a>");
+                        Response.Write("</a>");
                         sum = sum - c;
                     }
                 }
@@ -209,103 +189,67 @@
             </span>
 
             <%
-                string queryText = "";
-                int page = 1;
-                int pageCount = 10;
+            string queryText = "";
+            int page = 1;
+            int pageCount = 10;
+            try
+            {
+                hcount = int.Parse(Session["hc"].ToString());
+            }
+            catch (Exception e)
+            {
+                hcount = 0;
+            }
+            if (Request.QueryString["titleSearch"] != null)
+            {
+                pageCount = Cnsalitaward.Managers.WorkManager.GetPagesCountBySearching(page, Request.QueryString["titleSearch"], false, kind);
                 try
                 {
-                    hcount = int.Parse(Session["hc"].ToString());
+                    page = int.Parse(Request.QueryString["page"]);
                 }
                 catch (Exception e)
                 {
-                    hcount = 0;
-                }
-                if (Request.QueryString["titleSearch"] != null)
-                {
-                    pageCount = Cnsalitaward.Managers.WorkManager.GetPagesCountBySearching(page, Request.QueryString["titleSearch"], false, kind);
-                    try
-                    {
-                        page = int.Parse(Request.QueryString["page"]);
-                    }
-                    catch (Exception e)
-                    {
-                        page = 1;
-                    }
-
-                    queryText = "&titleSearch=" + Request.QueryString["titleSearch"];
-                }
-                else if (Request.QueryString["contentsSearch"] != null)
-                {
-                    pageCount = Cnsalitaward.Managers.WorkManager.GetPagesCountBySearching(page, Request.QueryString["contentsSearch"], true, kind);
-                    try
-                    {
-                        page = int.Parse(Request.QueryString["page"]);
-                    }
-                    catch (Exception e)
-                    {
-                        page = 1;
-                    }
-
-                    queryText = "&contentsSearch=" + Request.QueryString["contentsSearch"];
-                }
-                else
-                {
-                    pageCount = Cnsalitaward.Managers.WorkManager.GetPagesCount(kind, hcount);
-                    try
-                    {
-                        page = int.Parse(Request.QueryString["page"]);
-                    }
-                    catch (Exception e)
-                    {
-                        page = 1;
-                    }
+                    page = 1;
                 }
 
-                // 정상적인 페이지 요청일 경우
-                if (page <= pageCount)
+                queryText = "&titleSearch=" + Request.QueryString["titleSearch"];
+            }
+            else if (Request.QueryString["contentsSearch"] != null)
+            {
+                pageCount = Cnsalitaward.Managers.WorkManager.GetPagesCountBySearching(page, Request.QueryString["contentsSearch"], true, kind);
+                try
                 {
-                    // 요청한 페이지가 마지막 장일경우
-                    if (pageCount / 10 == page / 10)
-                    {
-                        if (page % 10 != 0)
-                        {
-                            for (int i = 1; i <= pageCount % 10; i++)
-                            {
-                                string pageStyle = "";
-                                string textStyle = " style=\"color: #343434;\"";
-                                if (i + ((page / 10) * 10) == page)
-                                {
-                                    pageStyle = " class=\"this-page\"";
-                                    textStyle = " style=\"color: white;\"";
-                                }
+                    page = int.Parse(Request.QueryString["page"]);
+                }
+                catch (Exception e)
+                {
+                    page = 1;
+                }
 
-                                Response.Write("<span" + pageStyle + " style=\"padding: 0.15VW 0.46VW; margin: 0.15VW;\">");
-                                Response.Write("<a" + textStyle + " href=\"/WorkList2?page=" + (i + ((page / 10) * 10)) + queryText + "\">" + (i + ((page / 10) * 10)) + "</a>");
-                                Response.Write("</span>");
-                            }
-                        }
-                        else
-                        {
-                            // 마지막 페이지의 일의 자릿 수가 0일 경우
-                            for (int i = 1; i <= 10; i++)
-                            {
-                                string pageStyle = "";
-                                string textStyle = " style=\"color: #343434;\"";
-                                if (i + page - 10 == page)
-                                {
-                                    pageStyle = " class=\"this-page\"";
-                                    textStyle = " style=\"color: white;\"";
-                                }
+                queryText = "&contentsSearch=" + Request.QueryString["contentsSearch"];
+            }
+            else
+            {
+                pageCount = Cnsalitaward.Managers.WorkManager.GetPagesCount(kind, hcount);
+                try
+                {
+                    page = int.Parse(Request.QueryString["page"]);
+                }
+                catch (Exception e)
+                {
+                    page = 1;
+                }
+            }
 
-                                Response.Write("<span" + pageStyle + " style=\"padding: 0.15VW 0.46VW; margin: 0.15VW;\">");
-                                Response.Write("<a" + textStyle + " href=\"/WorkList2?page=" + (i + page - 10) + queryText + "\">" + (i + page - 10) + "</a>");
-                                Response.Write("</span>");
-                            }
-                        }
-                    }
-                    else
+            // 정상적인 페이지 요청일 경우
+            if (page <= pageCount)
+            {
+                // 요청한 페이지가 마지막 장일경우
+                if (pageCount / 10 == page / 10)
+                {
+                    if (page % 10 != 0)
                     {
-                        for (int i = 1; i <= 10; i++)
+                        for (int i = 1; i <= pageCount % 10; i++)
                         {
                             string pageStyle = "";
                             string textStyle = " style=\"color: #343434;\"";
@@ -320,25 +264,61 @@
                             Response.Write("</span>");
                         }
                     }
+                    else
+                    {
+                        // 마지막 페이지의 일의 자릿 수가 0일 경우
+                        for (int i = 1; i <= 10; i++)
+                        {
+                            string pageStyle = "";
+                            string textStyle = " style=\"color: #343434;\"";
+                            if (i + page - 10 == page)
+                            {
+                                pageStyle = " class=\"this-page\"";
+                                textStyle = " style=\"color: white;\"";
+                            }
+
+                            Response.Write("<span" + pageStyle + " style=\"padding: 0.15VW 0.46VW; margin: 0.15VW;\">");
+                            Response.Write("<a" + textStyle + " href=\"/WorkList2?page=" + (i + page - 10) + queryText + "\">" + (i + page - 10) + "</a>");
+                            Response.Write("</span>");
+                        }
+                    }
                 }
                 else
                 {
-                    // 첫 목록
                     for (int i = 1; i <= 10; i++)
                     {
                         string pageStyle = "";
                         string textStyle = " style=\"color: #343434;\"";
-                        if (i == 1)
+                        if (i + ((page / 10) * 10) == page)
                         {
                             pageStyle = " class=\"this-page\"";
                             textStyle = " style=\"color: white;\"";
                         }
 
                         Response.Write("<span" + pageStyle + " style=\"padding: 0.15VW 0.46VW; margin: 0.15VW;\">");
-                        Response.Write("<a" + textStyle + " href=\"/WorkList2?page=" + i + queryText + "\">" + i + "</a>");
+                        Response.Write("<a" + textStyle + " href=\"/WorkList2?page=" + (i + ((page / 10) * 10)) + queryText + "\">" + (i + ((page / 10) * 10)) + "</a>");
                         Response.Write("</span>");
                     }
                 }
+            }
+            else
+            {
+                // 첫 목록
+                for (int i = 1; i <= 10; i++)
+                {
+                    string pageStyle = "";
+                    string textStyle = " style=\"color: #343434;\"";
+                    if (i == 1)
+                    {
+                        pageStyle = " class=\"this-page\"";
+                        textStyle = " style=\"color: white;\"";
+                    }
+
+                    Response.Write("<span" + pageStyle + " style=\"padding: 0.15VW 0.46VW; margin: 0.15VW;\">");
+                    Response.Write("<a" + textStyle + " href=\"/WorkList2?page=" + i + queryText + "\">" + i + "</a>");
+                    Response.Write("</span>");
+                }
+            }
             %>
             <span>
                 <strong><b>

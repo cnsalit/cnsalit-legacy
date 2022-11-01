@@ -118,21 +118,16 @@
                     foreach (var work in workList)
                     {
                         //writeWork
-                        if (isAdmin)
-                            Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
+                        Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
                         Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
-                        if (isAdmin)
-                            Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                        else
-                            Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                        Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
 
                         Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
                         Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
                         Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
                         Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
                         Response.Write("</div>");
-                        if (isAdmin)
-                            Response.Write("</a>");
+                        Response.Write("</a>");
                         ++nc;
                     }
                 }
@@ -149,21 +144,16 @@
                         foreach (var work in hotList)
                         {
                             //writeWork
-                            if (isAdmin)
-                                Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
+                            Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
                             Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
-                            if (isAdmin)
-                                Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                            else
-                                Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                            Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
 
                             Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
                             Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
                             Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
                             Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
                             Response.Write("</div>");
-                            if (isAdmin)
-                                Response.Write("</a>");
+                            Response.Write("</a>");
                             ++hc;
                         }
                         Session["hc"] = hc;
@@ -174,21 +164,16 @@
                         foreach (var work in workList)
                         {
                             //writeWork
-                            if (isAdmin)
-                                Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
+                            Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
                             Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
-                            if (isAdmin)
-                                Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                            else
-                                Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                            Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
 
                             Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
                             Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
                             Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
                             Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
                             Response.Write("</div>");
-                            if (isAdmin)
-                                Response.Write("</a>");
+                            Response.Write("</a>");
                             ++count;
                             ++cf;
                         }
@@ -203,21 +188,16 @@
                         foreach (var work in workList)
                         {
                             //writeWork
-                            if (isAdmin)
-                                Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
+                            Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
                             Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
-                            if (isAdmin)
-                                Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-                            else
-                                Response.Write("<div onclick=\"alert('현재는 작품감상을 하실 수 없습니다')\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                            Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
 
                             Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
                             Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
                             Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
                             Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
                             Response.Write("</div>");
-                            if (isAdmin)
-                                Response.Write("</a>");
+                            Response.Write("</a>");
                             sum = sum - c;
                         }
                     }
