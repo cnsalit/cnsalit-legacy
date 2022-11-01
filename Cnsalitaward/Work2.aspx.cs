@@ -85,6 +85,13 @@ namespace Cnsalitaward
 
             }
 
+            // 댓글 개수 보이기
+            int replyLength = 0;
+            List<Cnsalitaward.Models.Work> replyList = Cnsalitaward.Managers.WorkManager.GetReplyByPage(id, kind);
+            foreach (var reply in replyList)
+                replyLength++;
+            replyNum.InnerText = replyLength.ToString();
+
         }
 
 

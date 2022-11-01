@@ -73,7 +73,7 @@
             <div class="maintext">
                 <%=work.Content %>
                 <div class="blueline" style="margin-top: 2.81VW;"></div>
-                <div style="color: #707070; margin-top: 2vw; font-size: 2vw" class="NotoB">댓글</div>
+                <div style="color:#707070;margin-top:2vw;font-size:2vw" class="NotoB">댓글 <span runat="server" id="replyNum">fff</span>개</div>
 
                 <%  
 
@@ -82,6 +82,7 @@
                     string User = Session["UserID"].ToString();
                     string Admin = Cnsalitaward.Managers.Account.CheckAdmin(User);
                     workList = Cnsalitaward.Managers.WorkManager.GetReplyByPage(Id, kind);
+
                     foreach (var reply in workList)
                     {
                         Response.Write("<div class=\"replyline\" style = \"margin-top:1VW;\"></div>");
@@ -92,9 +93,8 @@
                         else Response.Write("<div style=\"color:white;\">~</div>");
                         Response.Write("<div class=\"rcontent\" style=\"margin-top:1vw\">" + reply.Content + "</div>");
                         Response.Write("<div class=\"replyline\" style = \"margin-top:1VW;\"></div>");
-
-
-                    }%>
+                    }
+                %>
                 <asp:TextBox ID="replytxt" runat="server" Style="float: left; width: 50vw; height: 7vw; margin-top: 4vw; margin-left: 6vw;" TextMode="MultiLine"></asp:TextBox>
                 <asp:Button Style="margin-left: 2vw; margin-top: 4vw; width: 7vw; height: 7vw;" ID="replybtn" runat="server" Text="등록" OnClick="Reply_Click" CssClass="reply" />
 
