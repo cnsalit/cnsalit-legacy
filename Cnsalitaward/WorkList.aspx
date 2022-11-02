@@ -92,75 +92,32 @@
 
                 string kind = "verse";
                 int hcount = 0;
-                int rPage;
-
                 try
                 {
-                    rPage = int.Parse(Request.QueryString["page"]);
-                }
-                catch (Exception e)
-                {
-                    rPage = 1;
-                }
-                int count = 0;
-                int hc = 0;
+                    int rPage;
+                    int rc;
 
-                List<Cnsalitaward.Models.Work> workList = null;
-                List<Cnsalitaward.Models.Work> hotList = null;
-                if (Request.QueryString["titleSearch"] != null || Request.QueryString["contentsSearch"] != null)
-                {
-                    int pageCounts = Cnsalitaward.Managers.WorkManager.GetPagesCountBySearching(rPage, Request.QueryString["titleSearch"], false, kind);
-                    if (rPage > pageCounts)
-                        rPage = 1;
-                    int nc = 1;
-
-                    workList = Cnsalitaward.Managers.WorkManager.GetWorksBySearching(rPage, Request.QueryString["titleSearch"], false, kind);
-                    foreach (var work in workList)
+                    try
                     {
-                        //writeWork
-                        Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
-                        Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
-                        Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
-
-                        Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
-                        Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
-                        Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
-                        Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
-                        Response.Write("</div>");
-                        Response.Write("</a>");
-                        ++nc;
+                        rPage = int.Parse(Request.QueryString["page"]);
                     }
-                }
-                else
-                {
-                    hcount = Cnsalitaward.Managers.WorkManager.GetHotPagesCount(kind);
-                    int pageCounts = Cnsalitaward.Managers.WorkManager.GetPagesCount(kind, hcount);
-                    if (rPage > pageCounts)
-                        rPage = 1;
-
-                    if (rPage == 1)
+                    catch (Exception e)
                     {
-                        hotList = Cnsalitaward.Managers.WorkManager.GetHotWorksPage(kind);
-                        foreach (var work in hotList)
-                        {
-                            //writeWork
-                            Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
-                            Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
-                            Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                        rPage = 1;
+                    }
+                    int count = 0;
+                    int hc = 0;
 
-                            Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
-                            Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
-                            Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
-                            Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
-                            Response.Write("</div>");
-                            Response.Write("</a>");
-                            ++hc;
-                        }
-                        Session["hc"] = hc;
-                        workList = Cnsalitaward.Managers.WorkManager.GetWorksByPage(rPage, hc, kind);
-                        int count2 = Cnsalitaward.Managers.WorkManager.GetWorksCount(kind);
-                        count = 0;
-                        int cf = 0;
+                    List<Cnsalitaward.Models.Work> workList = null;
+                    List<Cnsalitaward.Models.Work> hotList = null;
+                    if (Request.QueryString["titleSearch"] != null || Request.QueryString["contentsSearch"] != null)
+                    {
+                        int pageCounts = Cnsalitaward.Managers.WorkManager.GetPagesCountBySearching(rPage, Request.QueryString["titleSearch"], false, kind);
+                        if (rPage > pageCounts)
+                            rPage = 1;
+                        int nc = 1;
+
+                        workList = Cnsalitaward.Managers.WorkManager.GetWorksBySearching(rPage, Request.QueryString["titleSearch"], false, kind);
                         foreach (var work in workList)
                         {
                             //writeWork
@@ -174,34 +131,97 @@
                             Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
                             Response.Write("</div>");
                             Response.Write("</a>");
-                            ++count;
-                            ++cf;
+                            ++nc;
                         }
                     }
                     else
                     {
-                        int ac = int.Parse(Session["hc"].ToString());
-                        int count2 = Cnsalitaward.Managers.WorkManager.GetWorksCount(kind);
-                        workList = Cnsalitaward.Managers.WorkManager.GetWorksByPage2(rPage, ac, kind);
-                        int sum = count2 - ((rPage - 1) * 10 - ac);
-                        int c = 1;
-                        foreach (var work in workList)
-                        {
-                            //writeWork
-                            Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
-                            Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
-                            Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+                        hcount = Cnsalitaward.Managers.WorkManager.GetHotPagesCount(kind);
+                        int pageCounts = Cnsalitaward.Managers.WorkManager.GetPagesCount(kind, hcount);
+                        if (rPage > pageCounts)
+                            rPage = 1;
 
-                            Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
-                            Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
-                            Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
-                            Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
-                            Response.Write("</div>");
-                            Response.Write("</a>");
-                            sum = sum - c;
+                        if (rPage == 1)
+                        {
+                            hotList = Cnsalitaward.Managers.WorkManager.GetHotWorksPage(kind);
+                            foreach (var hot in hotList)
+                            {
+                                ////writeWork
+                                //Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
+                                //Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
+                                //Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+
+                                //Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
+                                //Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
+                                //Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
+                                //Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
+                                //Response.Write("</div>");
+                                //Response.Write("</a>");
+                                //++hc;
+                                // Write on Page
+                                Response.Write("<div style=\"float:left; width:70.6VW ;height:2.8VW; margin-left:14.75VW;background-color:EBEBEB\">");
+                                Response.Write("<div class=\"Noto\" style=\"text-align: center; ;background: #FFD8D8 0% 0% no-repeat padding-box;border-radius: 0.10416666666666667VW ;float:left; padding:0.88VW ;width: 2.9166666666666665VW;height:1.3541666666666667VW;margin-top:0.5VW; margin-left:0.6770833333333334VW;margin-right:0.5729166666666666VW\";></div>");
+                                Response.Write("<div class=\"Noto\" style=\"font-size:0.8333333333333334VW; margin-left:0.9375VW;position: absolute;margin-top: 0.8VW;color:#AF5151\">화제작</div>");
+                                //Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + hot.Title + "</div>");
+                                Response.Write("<div onclick=\"location.href='Work1?Id=" + hot.Id + "&Kind=verse'\"  class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:37.75VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + hot.Title + "</div>");
+                                Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + hot.Author + "</div>");
+
+                                Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:7vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + hot.Like + "</div>");
+                                Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left; width:9.2vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + hot.Date.ToString("yy.MM.dd") + "</div>");
+                                Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW; position:absolute;\";></div>");
+                                Response.Write("</div>");
+                                ++hc;
+                            }
+                            Session["hc"] = hc;
+                            workList = Cnsalitaward.Managers.WorkManager.GetWorksByPage(rPage, hc, kind);
+                            int count2 = Cnsalitaward.Managers.WorkManager.GetWorksCount(kind);
+                            count = 0;
+                            int cf = 0;
+                            foreach (var work in workList)
+                            {
+                                //writeWork
+                                Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
+                                Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
+                                Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+
+                                Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
+                                Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
+                                Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
+                                Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
+                                Response.Write("</div>");
+                                Response.Write("</a>");
+                                ++count;
+                                ++cf;
+                            }
+                        }
+                        else
+                        {
+                            int ac = int.Parse(Session["hc"].ToString());
+                            int count2 = Cnsalitaward.Managers.WorkManager.GetWorksCount(kind);
+                            workList = Cnsalitaward.Managers.WorkManager.GetWorksByPage2(rPage, ac, kind);
+                            int sum = count2 - ((rPage - 1) * 10 - ac);
+                            int c = 1;
+                            foreach (var work in workList)
+                            {
+                                //writeWork
+                                Response.Write("<a href='/Work1?Id=" + work.Id.ToString() + "'>");
+                                Response.Write("<div style=\"float:left; width:72.6VW ;height:2.8VW; margin-left:14.75VW;\">");
+                                Response.Write("<div class=\"Noto\" style=\"cursor:pointer;text-align: center; float:left;width:42.203VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Title + "</div>");
+
+                                Response.Write("<div class=\"Noto\" style=\"text-align: center;float:left;width:11.9VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Author + "</div>");
+                                Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:6.3VW; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Like + "</div>");
+                                Response.Write("<div class=\"Noto\" style=\"text-align: center; float:left; width:10vw; font-color:#5A5A5A ;padding:0.88VW ;height:2.8VW\";>" + work.Date.Date.ToString("yy.MM.dd") + "</div>");
+                                Response.Write("<div style=\"border:solid #5A5A5A 0.05VW; width:70.6VW;margin-top:2.8VW\";></div>");
+                                Response.Write("</div>");
+                                Response.Write("</a>");
+                                sum = sum - c;
+                            }
                         }
                     }
-                }
+                }catch(Exception ex)
+               {
+
+               }
 
 
             %>
