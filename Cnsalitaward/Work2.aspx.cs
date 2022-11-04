@@ -106,38 +106,36 @@ namespace Cnsalitaward
 
         protected void Like_Click(object sender, EventArgs e)
         {
+            string userID = Session["UserID"].ToString();
             string kind = "prose";
-            int id;
+            int workID = Convert.ToInt32(Request.QueryString["Id"].ToString());
 
-            string number = Request.QueryString["Id"].ToString();
-            id = Convert.ToInt32(number);
-
-            string rmduser = Session["UserID"].ToString() + kind + id;
-
+            string rmduser = userID + kind + workID;
+            string strRemoteIp = (string)HttpContext.Current.Request.UserHostAddress;
             string check = "no";
             try
             {
                 if (Request.Cookies[rmduser] != null)
                     check = Request.Cookies[rmduser].Value;
-                }
+            }
             catch (Exception ex)
             {
                 check = "no";
             }
+
             if (check == "no")
             {
-                Managers.WorkManager.Liked(id, kind);
-
                 HttpCookie cookie = new HttpCookie(rmduser);
                 cookie.Value = "1";
                 cookie.Expires = DateTime.Now.AddYears(1);
                 Response.Cookies.Add(cookie);
-            }
-            else
-            {
-                Response.Write("<script>alert('이미 추천하신 글입니다.');</script>");
+                if (Managers.WorkManager.PushLike(userID, kind, workID))
+                {
+                    return;
+                }
             }
 
+            Response.Write("<script>alert('이미 추천하신 글입니다.');</script>");
         }
         protected void Download_Click(object sender, EventArgs e)
         {

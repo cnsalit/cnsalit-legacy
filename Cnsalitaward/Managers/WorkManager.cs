@@ -1,5 +1,6 @@
 ﻿using Cnsalitaward.Models;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using Org.BouncyCastle.Utilities.Collections;
 using System;
 using System.Collections.Generic;
@@ -838,6 +839,46 @@ namespace Cnsalitaward.Managers
             {
                 conn.Close();
             }
+        }
+        public static bool PushLike(string userID, string kind, int workID)
+        {
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
+
+            if (!ConfirmLike(userID, kind, workID))
+            {
+                return false;
+            }
+
+            string sql = string.Format("INSERT INTO likeMemory VALUES ('{0}', '{1}', {2})", userID, kind, workID.ToString());
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.ExecuteNonQuery();
+
+            Liked(workID, kind);
+
+            return true;
+        }
+        public static bool ConfirmLike(string userID, string kind, int workID)
+        {
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
+            con.Open();
+
+            // sql = string.Format("UPDATE {0} SET Title='{2}', Brief='{3}', Content='{4}' WHERE Id={1}", UserID);
+            //ex) SELECT EXISTS(SELECT * FROM verse WHERE Id=39 && UserID="abcd" LIMIT 1) AS SUCCESS
+            MySqlCommand cmd = new MySqlCommand(
+                string.Format("SELECT EXISTS(SELECT * FROM likeMemory WHERE userID='{0}'&&kind='{1}'&&workID={2} LIMIT 1) AS SUCCESS", userID, kind, workID),
+                con
+            );
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            bool canPushLike = false;
+            if (reader.Read())
+                canPushLike = reader["SUCCESS"].Equals(Convert.ToInt64(1));      //추천을 누를 수 있을 시 true, 아니면  false
+
+            reader.Close();
+            con.Close();
+
+            return canPushLike;
         }
     }
 }
