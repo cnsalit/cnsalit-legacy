@@ -110,7 +110,7 @@ namespace Cnsalitaward
             string kind = "verse";
             int workID = Convert.ToInt32(Request.QueryString["Id"].ToString());
             
-            string rmduser = userID + kind + workID;
+            string rmduser = "n" + userID + kind + workID;
             string strRemoteIp = (string)HttpContext.Current.Request.UserHostAddress;
             string check = "no";
             try
