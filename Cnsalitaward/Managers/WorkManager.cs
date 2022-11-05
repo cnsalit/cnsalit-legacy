@@ -621,7 +621,6 @@ namespace Cnsalitaward.Managers
             cmd.CommandType = CommandType.Text;
             cmd.ExecuteNonQuery();
             conn.Close();
-
         }
 
         public static void Liked(int Id, string kind) // 추천 증가
@@ -852,8 +851,7 @@ namespace Cnsalitaward.Managers
             string sql = string.Format("INSERT INTO likeMemory VALUES ('{0}', '{1}', {2})", userID, kind, workID.ToString());
             MySqlCommand cmd = new MySqlCommand(sql, con);
             cmd.ExecuteNonQuery();
-
-            cmd.Close();
+            
             con.Close();
 
             Liked(workID, kind);
