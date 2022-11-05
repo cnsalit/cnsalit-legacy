@@ -28,7 +28,6 @@ namespace Cnsalitaward
             if (!Managers.WorkManager.ConfirmLike(User, kind, id))
             {
                 Likebtn.Text = "추천됨";
-                Likebtn.Enabled = false;
             }
 
             Deletebtn.Style["visibility"] = "hidden";
@@ -115,7 +114,11 @@ namespace Cnsalitaward
             string userID = Session["UserID"].ToString();
             string kind = "prose";
             int workID = Convert.ToInt32(Request.QueryString["Id"].ToString());
-            Managers.WorkManager.PushLike(userID, kind, workID);
+            if (!Managers.WorkManager.PushLike(userID, kind, workID))
+            {
+                Response.Write("<script>alert('이미 추천하신 작품입니다.');</script>");
+                return;
+            }
         }
         protected void Download_Click(object sender, EventArgs e)
         {
