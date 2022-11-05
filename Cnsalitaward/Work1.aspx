@@ -62,7 +62,7 @@
 
 
 
-            <div class="good" style="float: left">추천 </div>
+            <div class="good" style="float: left">추천</div>
             <div class="realgood" style="float: left"><%=work.Like %></div>
 
             <asp:Button runat="server" Text="수정" ID="Modifybtn" OnClick="Modify_Click" class="rewrite" Style="margin-left: 50vw !important; margin-top: -2.35vw !important; cursor: pointer; border: 1px solid white; font-size: 1.3vw; float: left"></asp:Button>

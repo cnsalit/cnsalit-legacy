@@ -848,6 +848,8 @@ namespace Cnsalitaward.Managers
 
             MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
 
+            con.Open();
+
             string sql = string.Format("INSERT INTO likeMemory VALUES ('{0}', '{1}', {2})", userID, kind, workID.ToString());
             MySqlCommand cmd = new MySqlCommand(sql, con);
             cmd.ExecuteNonQuery();
@@ -869,12 +871,12 @@ namespace Cnsalitaward.Managers
                 string.Format("SELECT EXISTS(SELECT * FROM likeMemory WHERE userID='{0}'&&kind='{1}'&&workID={2} LIMIT 1) AS SUCCESS", userID, kind, workID),
                 con
             );
-
+            //throw new Exception(string.Format("SELECT EXISTS(SELECT * FROM likeMemory WHERE userID='{0}'&&kind='{1}'&&workID={2} LIMIT 1) AS SUCCESS", userID, kind, workID));
             MySqlDataReader reader = cmd.ExecuteReader();
 
             bool canPushLike = false;
             if (reader.Read())
-                canPushLike = reader["SUCCESS"].Equals(Convert.ToInt64(1));      //추천을 누를 수 있을 시 true, 아니면  false
+                canPushLike = !reader["SUCCESS"].Equals(Convert.ToInt64(1));      //추천한 목록에 포함되어 있으면 false, 아니면  false
 
             reader.Close();
             con.Close();

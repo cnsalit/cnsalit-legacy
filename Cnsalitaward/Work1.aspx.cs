@@ -25,6 +25,12 @@ namespace Cnsalitaward
             string number = Request.QueryString["Id"].ToString();
             id = Convert.ToInt32(number);
 
+            if (!Managers.WorkManager.ConfirmLike(User, kind, id))
+            {
+                Likebtn.Text = "추천됨";
+                Likebtn.Enabled = false;
+            }
+
             Deletebtn.Style["visibility"] = "hidden";
             Modifybtn.Style["visibility"] = "hidden";
             downloadbtn.Style["visibility"] = "visible";
@@ -109,11 +115,7 @@ namespace Cnsalitaward
             string userID = Session["UserID"].ToString();
             string kind = "verse";
             int workID = Convert.ToInt32(Request.QueryString["Id"].ToString());
-            if (!Managers.WorkManager.PushLike(userID, kind, workID))
-            {
-                Response.Write("<script>alert('이미 추천하신 작품입니다.');</script>");
-                return;
-            }
+            Managers.WorkManager.PushLike(userID, kind, workID);
         }
 
         protected void Download_Click(object sender, EventArgs e)

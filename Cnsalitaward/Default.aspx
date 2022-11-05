@@ -11,6 +11,38 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
    <link rel="stylesheet"  href="/assets/css/default.css" />
+
+        <style>
+    .layerPopup img{
+    margin-bottom : 20px;}
+    .layerPopup:before {display:block; content:""; position:fixed; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.5); z-index:9000}
+    .layerPopup .layerBox {    z-index:10000;   
+    position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); padding:30px; background:#fff; border-radius:6px; }
+    .layerPopup .layerBox .title {margin-bottom:10px; padding-bottom:10px; font-weight:600; border-bottom:1px solid #d9d9d9;}
+    .layerPopup .layerBox .btnTodayHide {
+    font-size:14px; font-weight:600; color:black; 
+    float: left;text-decoration:none;width: 150px; 
+    height : 30px;line-height:30px;border:black solid 1px; text-align : center;text-decoration:none;
+    }
+    .layerPopup div{
+        display : inline;
+    }
+    .layerPopup form{
+        margin-top : 5px;
+        font-size:16px; font-weight:600;
+        weight: 100%;
+        height : 30px;
+        line-height:30px
+    }
+    .layerPopup #close {
+    font-size:16px; font-weight:600; width: 40px; height : 30px;color:black; float: right; line-height:30px; text-align : center;text-decoration:underline;
+    }
+    .layerPopup a{
+        text-decoration : none;
+        color : black;width: 50px;height : 40px;
+    }
+    </style>
+
 </head>
 
         <%--<script language="javascript" type="text/javascript">
@@ -21,7 +53,6 @@
         <body onload="openWin();"></body>--%>
 
     <body style="user-select:none;">
-     
 <div style="margin-top:1.6VW;" >
         <table frame=void style="width:70VW; height: 42VW;float:left;margin-left: 16VW; margin-top:3VW;border-spacing:0px 0px;border-style:none;padding:0px">
             <tr >
