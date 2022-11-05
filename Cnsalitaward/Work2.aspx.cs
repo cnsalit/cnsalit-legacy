@@ -109,33 +109,11 @@ namespace Cnsalitaward
             string userID = Session["UserID"].ToString();
             string kind = "prose";
             int workID = Convert.ToInt32(Request.QueryString["Id"].ToString());
-
-            string rmduser = "n" + userID + kind + workID;
-            string strRemoteIp = (string)HttpContext.Current.Request.UserHostAddress;
-            string check = "no";
-            try
+            if (!Managers.WorkManager.PushLike(userID, kind, workID))
             {
-                if (Request.Cookies[rmduser] != null)
-                    check = Request.Cookies[rmduser].Value;
+                Response.Write("<script>alert('이미 추천하신 작품입니다.');</script>");
+                return;
             }
-            catch (Exception ex)
-            {
-                check = "no";
-            }
-
-            if (check == "no")
-            {
-                HttpCookie cookie = new HttpCookie(rmduser);
-                cookie.Value = "1";
-                cookie.Expires = DateTime.Now.AddYears(1);
-                Response.Cookies.Add(cookie);
-                if (Managers.WorkManager.PushLike(userID, kind, workID))
-                {
-                    return;
-                }
-            }
-
-            Response.Write("<script>alert('이미 추천하신 글입니다.');</script>");
         }
         protected void Download_Click(object sender, EventArgs e)
         {
