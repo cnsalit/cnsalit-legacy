@@ -842,16 +842,19 @@ namespace Cnsalitaward.Managers
         }
         public static bool PushLike(string userID, string kind, int workID)
         {
-            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
-
             if (!ConfirmLike(userID, kind, workID))
             {
                 return false;
             }
 
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cnsalitaward"].ConnectionString);
+
             string sql = string.Format("INSERT INTO likeMemory VALUES ('{0}', '{1}', {2})", userID, kind, workID.ToString());
             MySqlCommand cmd = new MySqlCommand(sql, con);
             cmd.ExecuteNonQuery();
+
+            cmd.Close();
+            con.Close();
 
             Liked(workID, kind);
 
