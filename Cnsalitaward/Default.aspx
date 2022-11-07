@@ -104,11 +104,11 @@
     <body style="user-select: none;">
         <div class="layerPopup" id="layer_popup" style="visibility: visible;">
             <div class="layerBox">
-                <h4 class="title">투표 부탁드립니다</h4>
-                <div class="cont">
+                <div class="cont" style="border-radius: 15px;">
                     <p>
-                        <button onclick="CLK();">
-                            <img src="/assets/img/survey.png" alt="" style="width: 320px; height: 320px"></button>
+                        <a href="https://forms.gle/yhsriSY4u5jbsx7g6">
+                            <img src="/assets/img/survey.png" alt="" style="width: 300px; height: 250px">
+                        </a>
                     </p>
                 </div>
                 <form name="pop_form">
@@ -216,9 +216,6 @@
                     setCookie("maindiv", "done", 1);
                 }
                 layerPopup.style.visibility = "hidden";
-            }
-            function CLK() {
-                location.href = "https://forms.gle/yhsriSY4u5jbsx7g6";
             }
         </script>
     </body>
