@@ -165,7 +165,7 @@
                             </a>
                         </div>
                     </td>
-                    <td <%--onclick="location.href='Vote.aspx'"--%> onclick="alert('현재는 투표할 수 없습니다.')" style="cursor: pointer; width: 20%; height: 14VW; background-image: url('/assets/img/vote.jpg'); background-size: contain; border: none"></td>
+                    <td onclick="location.href='https://forms.gle/yhsriSY4u5jbsx7g6'" <%--onclick="location.href='Vote.aspx'"--%> <%--onclick="alert('현재는 투표할 수 없습니다.')"--%> style="cursor: pointer; width: 20%; height: 14VW; background-image: url('/assets/img/vote.jpg'); background-size: contain; border: none"></td>
                     <td style="width: 20%; height: 14VW; border: none; background-image: url('/assets/img/default1.jpg'); background-size: contain;"></td>
 
 

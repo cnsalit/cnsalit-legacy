@@ -55,10 +55,10 @@
             <a href="Introduce?menu=Introduce" class="nav_menu" style="margin-right: 2.5vw; margin-left: 2.9VW;">큰별 문학상 소개</a>
             <a href="Honor?menu=Honor" class="nav_menu" style="margin-right: 2.5vw">명예의 전당</a>
             <!--<a href="#" onclick="alert('더이상 응모할 수 없습니다.')" class="nav_menu" style="margin-right: 2.5vw">작품응모 </a>-->
+            <a href="/UploadCritic" class="nav_menu" style="margin-right: 2.5vw">비평하기</a>
             <a href="WorkList" class="nav_menu" style="margin-right: 2.5vw">작품 전시관</a><!--href="WorkList?page=1"-->
             <a href="/CriticList" class="nav_menu" style="margin-right: 2.5vw;">비평 게시판</a> <!--href="CriticList"-->
-            <a href="#" class="nav_menu" style="margin-right: 2.5vw; display: none;">내가 뽑은 최고의 작품</a><!--href="Vote"-->
-            <a href="/UploadCritic" class="nav_menu" style="margin-right: 2.5vw">비평하기</a>
+            <a href="https://forms.gle/yhsriSY4u5jbsx7g6" class="nav_menu" style="margin-right: 2.5vw;">투표하기</a><!--href="Vote"-->
             <a href="Member" class="nav_menu">만든이</a>
             <div class="nav-underline"></div>
         </span>
