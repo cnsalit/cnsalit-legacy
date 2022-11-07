@@ -107,7 +107,7 @@
                 <div class="cont" style="border-radius: 15px;">
                     <p>
                         <a href="https://forms.gle/yhsriSY4u5jbsx7g6">
-                            <img src="/assets/img/survey.png" alt="" style="width: 300px; height: 250px">
+                            <img src="/assets/img/survey.png" alt="" style="width: 600px; height: 500px">
                         </a>
                     </p>
                 </div>
