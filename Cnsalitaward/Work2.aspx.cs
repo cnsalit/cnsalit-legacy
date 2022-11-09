@@ -38,7 +38,7 @@ namespace Cnsalitaward
 
             var work = Cnsalitaward.Managers.WorkManager.GetWork(id, kind);
             Managers.WorkManager.Visitied(id, kind);
-            if (Cnsalitaward.Managers.Account.CheckAdmin(User) == "admin")
+            if (Cnsalitaward.Managers.Account.CheckWorkAdministrator(id, User, true, false))
             {
                 Modifybtn.Style["visibility"] = "visible";
                 Deletebtn.Style["visibility"] = "visible";
