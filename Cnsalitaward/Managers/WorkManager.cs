@@ -122,8 +122,8 @@ namespace Cnsalitaward.Managers
 
                 // Connect to Database
                 // UPDATE verse SET Title = "운문", Brief = "요약", Content = "본문" WHERE Id = 39;
-                sql = string.Format("UPDATE {0} SET Title='{2}', Brief='{3}', Content='{4}' WHERE Id={1}", kind, workId, title, brief, content);
-                //sql = string.Format("UPDATE {0} SET Title='{2}', Brief='{3}', Content='{4}' WHERE Id={1}", kind, workId, title, brief, content.Replace("\r\n", "<br/>"));
+                //sql = string.Format("UPDATE {0} SET Title='{2}', Brief='{3}', Content='{4}' WHERE Id={1}", kind, workId, title, brief, content);
+                sql = string.Format("UPDATE {0} SET Title='{2}', Brief='{3}', Content='{4}' WHERE Id={1}", kind, workId, title, brief, content.Replace("\r\n", "<br/>"));
                 MySqlCommand cmd = new MySqlCommand(sql, con);
 
                 return cmd.ExecuteNonQuery();
