@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Web;
@@ -123,16 +124,35 @@ namespace Cnsalitaward.Managers
                 // Connect to Database
                 // UPDATE verse SET Title = "운문", Brief = "요약", Content = "본문" WHERE Id = 39;
                 //sql = string.Format("UPDATE {0} SET Title='{2}', Brief='{3}', Content='{4}' WHERE Id={1}", kind, workId, title, brief, content);
-                sql = string.Format("UPDATE {0} SET Title='{2}', Brief='{3}', Content='{4}' WHERE Id={1}", kind, workId, title, brief, content.Replace("\r\n", "<br/>"));
+                // sql = string.Format("UPDATE {0} SET Title='{2}', Brief='{3}', Content='{4}' WHERE Id={1}", kind, workId, title.Replace("'", "\'"), brief, content.Replace("\r\n", "<br/>"));
+
+                DataSet ds = new DataSet();
+
+                sql = "UPDATE " + kind + " SET Title=@title, Brief=@brief, Content=@content WHERE Id=@id";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                MySqlParameter paramTitle = new MySqlParameter("@title", MySqlDbType.VarChar, 50);
+                paramTitle.Value = title;
+                cmd.Parameters.Add(paramTitle);
+
+                MySqlParameter paramBrief = new MySqlParameter("@brief", MySqlDbType.VarChar, 3000);
+                paramBrief.Value = brief.Replace("\r\n", "<br/>");
+                cmd.Parameters.Add(paramBrief);
+
+                MySqlParameter paramContent = new MySqlParameter("@content", MySqlDbType.MediumText);
+                paramContent.Value = content.Replace("\r\n", "<br/>");
+                cmd.Parameters.Add(paramContent);
+
+                MySqlParameter paramID = new MySqlParameter("@id", MySqlDbType.Int64);
+                paramID.Value = workId;
+                cmd.Parameters.Add(paramID);
 
                 return cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
                 // TODO: 예외 처리
-                throw new Exception(sql);
-                //throw new Exception(e.Message);
+                throw new Exception(e.Message);
             }
             finally
             {
